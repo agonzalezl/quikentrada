@@ -1,9 +1,10 @@
+{% load staticfiles %}
 <!DOCTYPE html>
   <html>
     <head>
       <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
-      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
-	  <link type="text/css" rel="stylesheet" href="../css/style.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+	  <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"  media="screen,projection"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
@@ -19,11 +20,15 @@
 					<div class="col s12 m8 push-m2 l6 push-l3">
 						<div id="loginCard" class="card hoverable">
 							<div class="card-image">
-								<img src="../img/tools.jpg"> <span class="card-title">QUIKENTRADA ADMIN</span>
+								<img src="{% static 'img/tools.jpg' %}"> <span class="card-title">QUIKENTRADA ADMIN</span>
 							</div>
 							<div class="card-content">
-								<form id="loginForm" action="index.html" method="post">
+								<form id="loginForm" action="/login/" method="post">
 									<div class="row">
+										{% csrf_token %}
+								        {% if next %}
+								            <input type="hidden" name="next" value="{{ next }}" />
+								        {% endif %}
 										<div class="input-field col s10 offset-s1">
 											<i class="material-icons prefix">account_circle</i>
 											<input id="username" name="username" type="text" required="required" autofocus><label for="username" data-error="wrong">Username</label>
@@ -52,7 +57,7 @@
 	</main>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="../js/materialize.min.js"></script>
+      <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 
     </body>
   </html>

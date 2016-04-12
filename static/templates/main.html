@@ -1,0 +1,6 @@
+<p>Welcome, {{ user.username }}.</p>
+<h1>Lista de Eventos</h1>
+
+{% for evento in eventos %}
+	Nombre: {{ evento.nombre }} <br>
+{% endfor %}
