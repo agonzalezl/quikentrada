@@ -6,12 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from eventos.models import *
 
 # Create your views here.
-def inicio(request):
-    return render(request, 'index.html')
-
-def main(request):
+def index(request):
     eventos = Evento.objects.all()
-    return render(request, 'main.html', {'eventos':eventos})
+    return render(request, 'index.html', {'eventos': eventos})
 
 def login_user(request):
     logout(request)
@@ -30,4 +27,9 @@ def login_user(request):
 def search(request):
     searched = request.GET['search']
     eventList =  Evento.objects.filter(nombre__icontains=searched)
-    return render(request, 'search.html', {'eventos':eventList, 'searched':searched})
+    return render(request, 'search.html', {'eventos':eventList, 'searched': searched})
+
+def event(request):
+    id_event = request.GET.get('id')
+    evento = Evento.objects.get(pk=id_event) 
+    return render(request, 'event.html', {'evento': evento})

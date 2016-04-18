@@ -21,13 +21,15 @@ from eventos import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-	# "inicio" URL
-    url(r'^$', views.inicio, name='inicio'),
+	# "index" URL
+    url(r'^$', views.index, name='index'),
 
     # "login" URL
     url(r'^login/', views.login_user, name='login'),
 
-    url(r'^main/$', views.main, name="main"),
+    # "search" URL
+    url(r'^search/', views.search, name="search"),
 
-    url(r'^search/$', views.search, name="search"),
+    # "event" URL
+    url(r'^event', views.event, name="event"),
 ]
