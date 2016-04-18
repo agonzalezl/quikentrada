@@ -27,6 +27,7 @@ urlpatterns = [
     # "login" URL
     url(r'^login/', views.login_user, name='login'),
 
-    url(r'^main/$', views.main, name="main")
+    url(r'^main/$', views.main, name="main"),
 
+    url(r'^search/$', views.search, name="search"),
 ]
