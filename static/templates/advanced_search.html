@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Search advanced</title>
+		</head>
+		<body>
+			<form action="/advanced_search/" method="get">
+				<label>Nombre: </label><input id="name" name="name" type="text"><br>
+				<label>Fecha: </label><input id="date" name="date" type="date"><br>
+				<label>Lugar: </label><input id="location" name="location" type="text"><br>
+				<!-- <label>Tipo: </label><input id="tipo" name="tipo" type="text"><br> -->
+				<input type="submit">Search</input>
+			</form>
+
+			{% for evento in eventos %}
+				Nombre: <a href="/event/?id={{evento.id}}">{{ evento.nombre }}</a> <br>
+			{% endfor %}
+		</body>
+	</html>

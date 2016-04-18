@@ -30,6 +30,9 @@ urlpatterns = [
     # "search" URL
     url(r'^search/', views.search, name="search"),
 
+    # "advanced search" URL
+    url(r'^advanced_search/', views.advanced_search, name="advanced_search"),
+
     # "event" URL
     url(r'^event', views.event, name="event"),
 ]

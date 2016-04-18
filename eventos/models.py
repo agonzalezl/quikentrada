@@ -125,7 +125,7 @@ class DjangoSession(models.Model):
 class Evento(models.Model):
     id = models.AutoField(primary_key=True)  # AutoField?
     nombre = models.CharField(max_length=50)
-    fecha = models.DateTimeField(blank=True, null=True)
+    fecha = models.DateField(blank=True, null=True)
     lugar = models.CharField(max_length=256)
     descripcion = models.CharField(max_length=256)
     precio = models.IntegerField()
