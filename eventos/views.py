@@ -26,3 +26,8 @@ def login_user(request):
                 login(request, user)
                 return HttpResponseRedirect('/admin/')
     return render_to_response('login.html', context_instance=RequestContext(request))
+
+def search(request):
+    searched = request.GET['search']
+    eventList =  Evento.objects.filter(nombre__icontains=searched)
+    return render(request, 'search.html', {'eventos':eventList, 'searched':searched})

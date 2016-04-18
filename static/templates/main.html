@@ -14,9 +14,10 @@
 				<nav>
 					<div class="nav-wrapper">
 					<a href="#" class="brand-logo">Quikentrada</a>
-						<form class="right">
+						<form class="right" action="/search/" method="get">
+							{% csrf_token %}
 							<div class="input-field searchBox">
-								<input id="search" type="search" required="">
+								<input id="search" name="search" type="search" required="">
 								<label for="search"><i class="material-icons">search</i></label>
 								<i class="material-icons">close</i>
 							</div>
