@@ -123,7 +123,7 @@ class DjangoSession(models.Model):
 
 
 class Evento(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
+    id = models.AutoField(primary_key=True)  # AutoField?
     nombre = models.CharField(max_length=50)
     fecha = models.DateTimeField(blank=True, null=True)
     lugar = models.CharField(max_length=256)
@@ -142,7 +142,7 @@ class Evento(models.Model):
         return self.nombre
 
 class Horario(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
+    id = models.AutoField(primary_key=True)  # AutoField?
     hora_inicio = models.DateTimeField(blank=True, null=True)
     hora_fin = models.DateTimeField(blank=True, null=True)
 
