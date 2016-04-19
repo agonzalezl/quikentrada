@@ -138,14 +138,16 @@ class Eventos(models.Model):
     descripcion = models.CharField(max_length=250)
     precio = models.DecimalField(max_digits=10, decimal_places=1)
     capacidad = models.IntegerField()
-    entradas_vendidas = models.IntegerField()
-    consultas = models.IntegerField()
+    entradas_vendidas = models.IntegerField(editable=False, default=0)
+    consultas = models.IntegerField(editable=False, default=0)
     estado = models.CharField(max_length=25)
     tipo_evento = models.ForeignKey('TipoEventos', models.DO_NOTHING, db_column='tipo_evento')
 
     class Meta:
         managed = False
         db_table = 'eventos'
+        verbose_name = 'Evento'
+        verbose_name_plural = 'Eventos'
 
     def __str__(self):
         return self.nombre
@@ -160,6 +162,8 @@ class Horarios(models.Model):
     class Meta:
         managed = False
         db_table = 'horarios'
+        verbose_name = 'Horario'
+        verbose_name_plural = 'Horarios'
 
 
 class TipoEventos(models.Model):
@@ -169,6 +173,8 @@ class TipoEventos(models.Model):
     class Meta:
         managed = False
         db_table = 'tipo_eventos'
+        verbose_name = 'Tipo de Evento'
+        verbose_name_plural = 'Tipo de Eventos'
 
     def __str__(self):
         return self.nombre_tipoevento

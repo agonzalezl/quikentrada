@@ -7,14 +7,20 @@
 		<body>
 			<form action="/advanced_search/" method="get">
 				<label>Nombre: </label><input id="name" name="name" type="text"><br>
-				<label>Fecha: </label><input id="date" name="date" type="date"><br>
+				<label>Fecha (desde): </label><input id="date_start" name="date_start" type="date"><br>
+				<label>Fecha (hasta): </label><input id="date_end" name="date_end" type="date"><br>
 				<label>Lugar: </label><input id="location" name="location" type="text"><br>
-				<!-- <label>Tipo: </label><input id="tipo" name="tipo" type="text"><br> -->
+                <label >Tipo: </label>
+                <select name="type" id="type" class="form-control">
+                    {% for tipo_evento in tipo_eventos %}
+                        <option value="{{tipo_evento.id_tipoevento}}">{{tipo_evento.nombre_tipoevento}}</option>
+                    {% endfor %}
+                </select><br>
 				<input type="submit">Search</input>
 			</form>
 
 			{% for evento in eventos %}
-				Nombre: <a href="/event/?id={{evento.id}}">{{ evento.nombre }}</a> <br>
+				Nombre: <a href="/event/?id={{evento.id_evento}}">{{ evento.nombre }}</a> <br>
 			{% endfor %}
 		</body>
 	</html>

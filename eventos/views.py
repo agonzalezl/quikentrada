@@ -38,25 +38,27 @@ def event(request):
 
 # It works except with date
 def advanced_search(request):
+    tipo_eventos = TipoEventos.objects.all()
     queryset = Q()
 
     name = request.GET.get('name')
-    date = request.GET.get('date')
+    date_start = request.GET.get('date_start')
+    date_end = request.GET.get('date_end')
     location = request.GET.get('location')
-    # tipo = request.GET.get('tipo')
+    type_event = request.GET.get('type')
 
     if name:
         queryset.add(Q(nombre__icontains=name), Q.OR)
 
-    if date:
-         queryset.add(Q(fecha=date), Q.OR)
+    if date_start and date_end:
+        queryset.add(Q(fecha__range=(date_start, date_end)), Q.OR)
 
     if location:
-         queryset.add(Q(lugar__icontains=location), Q.OR)
+        queryset.add(Q(lugar__icontains=location), Q.OR)
 
-    # if tipo is not None:
-    #      queryset.add(Q(tipo=tipo), Q.AND)
+    if type_event:
+         queryset.add(Q(tipo_evento=type_event), Q.OR)
 
     eventList = Eventos.objects.filter(queryset)
-    return render(request, 'advanced_search.html', {'eventos':eventList})
+    return render(request, 'advanced_search.html', {'eventos':eventList, 'tipo_eventos':tipo_eventos})
 

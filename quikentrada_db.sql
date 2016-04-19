@@ -21,8 +21,8 @@ CREATE TABLE public.eventos (
                 descripcion VARCHAR(250) NOT NULL,
                 precio NUMERIC NOT NULL,
                 capacidad INTEGER NOT NULL,
-                entradas_vendidas INTEGER NOT NULL,
-                consultas INTEGER NOT NULL,
+                entradas_vendidas INTEGER DEFAULT 0 NOT NULL,
+                consultas INTEGER DEFAULT 0 NOT NULL,
                 estado VARCHAR(25) NOT NULL,
                 tipo_evento INTEGER NOT NULL,
                 CONSTRAINT id_evento PRIMARY KEY (id_evento)

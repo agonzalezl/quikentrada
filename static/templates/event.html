@@ -6,12 +6,12 @@
 		<body>
 			<p>Nombre: {{ evento.nombre }}</p>
 			{% if evento.imagen %}
-			<img src="{{evento.imagen.url}}">
+			<img src="{{evento.imagen.url}}" width="150" heigth="150">
 			{% endif %}
 			<p>Fecha: {{ evento.fecha }}</p>
 			<p>Lugar: {{ evento.lugar }}</p>
 			<p>Descripción: {{ evento.descripcion }}</p>
-			<p>Precio: {{ evento.precio }}</p>
+			<p>Precio de Entradas: {{ evento.precio }}</p>
 			<p>Capacidad: {{ evento.capacidad }}</p>
 			<p>Entradas Vendidas: {{ evento.entradas_vendidas }}</p>
 
