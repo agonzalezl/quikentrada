@@ -33,10 +33,10 @@ def search(request):
 
 def event(request):
     id_event = request.GET.get('id')
-    evento = Eventos.objects.get(pk=id_event) 
-    return render(request, 'event.html', {'evento': evento})
+    evento = Eventos.objects.get(pk=id_event)
+    disponibilidad = evento.capacidad - evento.entradas_vendidas 
+    return render(request, 'event.html', {'evento': evento, 'disponibilidad':disponibilidad})
 
-# It works except with date
 def advanced_search(request):
     tipo_eventos = TipoEventos.objects.all()
     queryset = Q()
