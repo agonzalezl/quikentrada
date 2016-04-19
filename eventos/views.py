@@ -9,7 +9,7 @@ from django import forms
 
 # Create your views here.
 def index(request):
-    eventos = Evento.objects.all()
+    eventos = Eventos.objects.all()
     return render(request, 'index.html', {'eventos': eventos})
 
 def login_user(request):
@@ -28,12 +28,12 @@ def login_user(request):
 
 def search(request):
     searched = request.GET['search']
-    eventList =  Evento.objects.filter(nombre__icontains=searched)
+    eventList =  Eventos.objects.filter(nombre__icontains=searched)
     return render(request, 'search.html', {'eventos':eventList, 'searched': searched})
 
 def event(request):
     id_event = request.GET.get('id')
-    evento = Evento.objects.get(pk=id_event) 
+    evento = Eventos.objects.get(pk=id_event) 
     return render(request, 'event.html', {'evento': evento})
 
 # It works except with date
@@ -57,6 +57,6 @@ def advanced_search(request):
     # if tipo is not None:
     #      queryset.add(Q(tipo=tipo), Q.AND)
 
-    eventList = Evento.objects.filter(queryset)
+    eventList = Eventos.objects.filter(queryset)
     return render(request, 'advanced_search.html', {'eventos':eventList})
 

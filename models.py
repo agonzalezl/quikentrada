@@ -11,7 +11,6 @@ from django.db import models
 
 
 class AuthGroup(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
     name = models.CharField(unique=True, max_length=80)
 
     class Meta:
@@ -20,7 +19,6 @@ class AuthGroup(models.Model):
 
 
 class AuthGroupPermissions(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
     group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
     permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
 
@@ -31,10 +29,9 @@ class AuthGroupPermissions(models.Model):
 
 
 class AuthPermission(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
+    name = models.CharField(max_length=255)
     content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
     codename = models.CharField(max_length=100)
-    name = models.CharField(max_length=255)
 
     class Meta:
         managed = False
@@ -43,17 +40,16 @@ class AuthPermission(models.Model):
 
 
 class AuthUser(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
     password = models.CharField(max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
     is_superuser = models.BooleanField()
+    username = models.CharField(unique=True, max_length=30)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.CharField(max_length=254)
     is_staff = models.BooleanField()
     is_active = models.BooleanField()
     date_joined = models.DateTimeField()
-    username = models.CharField(unique=True, max_length=30)
 
     class Meta:
         managed = False
@@ -61,7 +57,6 @@ class AuthUser(models.Model):
 
 
 class AuthUserGroups(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
     group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
 
@@ -72,7 +67,6 @@ class AuthUserGroups(models.Model):
 
 
 class AuthUserUserPermissions(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
     permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
 
@@ -83,14 +77,13 @@ class AuthUserUserPermissions(models.Model):
 
 
 class DjangoAdminLog(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
+    action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
     object_repr = models.CharField(max_length=200)
-    action_flag = models.PositiveSmallIntegerField()
+    action_flag = models.SmallIntegerField()
     change_message = models.TextField()
     content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    action_time = models.DateTimeField()
 
     class Meta:
         managed = False
@@ -98,7 +91,6 @@ class DjangoAdminLog(models.Model):
 
 
 class DjangoContentType(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
     app_label = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
 
@@ -109,7 +101,6 @@ class DjangoContentType(models.Model):
 
 
 class DjangoMigrations(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
     app = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     applied = models.DateTimeField()
@@ -129,38 +120,56 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-class EventosEvento(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
+class Entradas(models.Model):
+    id_entrada = models.AutoField(primary_key=True)
+    fecha_compra = models.DateTimeField()
+    nombre = models.CharField(max_length=25)
+    apellido = models.CharField(max_length=25)
+    dni = models.CharField(max_length=10)
+    telefono = models.CharField(max_length=25)
+    edad = models.IntegerField()
+    email = models.CharField(max_length=50)
+    id_evento = models.ForeignKey('Eventos', models.DO_NOTHING, db_column='id_evento')
+
+    class Meta:
+        managed = False
+        db_table = 'entradas'
+
+
+class Eventos(models.Model):
+    id_evento = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
-    fecha = models.DateTimeField(blank=True, null=True)
-    lugar = models.CharField(max_length=256)
-    descripcion = models.CharField(max_length=256)
-    precio = models.IntegerField()
+    imagen = models.CharField(max_length=75, blank=True, null=True)
+    fecha = models.DateField()
+    lugar = models.CharField(max_length=25)
+    descripcion = models.CharField(max_length=250)
+    precio = models.DecimalField(max_digits=65535, decimal_places=65535)
     capacidad = models.IntegerField()
     entradas_vendidas = models.IntegerField()
-    num_consultas = models.IntegerField()
-    estado = models.CharField(max_length=20)
+    consultas = models.IntegerField()
+    estado = models.CharField(max_length=25)
+    tipo_evento = models.ForeignKey('TipoEventos', models.DO_NOTHING, db_column='tipo_evento')
 
     class Meta:
         managed = False
-        db_table = 'eventos_evento'
+        db_table = 'eventos'
 
 
-class EventosHorario(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
-    id_evento = models.CharField(max_length=50)
-    hora_inicio = models.DateTimeField(blank=True, null=True)
-    hora_fin = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'eventos_horario'
-
-
-class EventosTipoevento(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
-    nombre = models.CharField(max_length=50)
+class Horarios(models.Model):
+    id_horario = models.AutoField(primary_key=True)
+    hora_inicio = models.TimeField()
+    hora_fin = models.TimeField()
+    id_evento = models.ForeignKey(Eventos, models.DO_NOTHING, db_column='id_evento')
 
     class Meta:
         managed = False
-        db_table = 'eventos_tipoevento'
+        db_table = 'horarios'
+
+
+class TipoEventos(models.Model):
+    id_tipoevento = models.AutoField(primary_key=True)
+    nombre_tipoevento = models.CharField(max_length=25)
+
+    class Meta:
+        managed = False
+        db_table = 'tipo_eventos'

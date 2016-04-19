@@ -5,6 +5,9 @@
 		</head>
 		<body>
 			<p>Nombre: {{ evento.nombre }}</p>
+			{% if evento.imagen %}
+			<img src="{{evento.imagen.url}}">
+			{% endif %}
 			<p>Fecha: {{ evento.fecha }}</p>
 			<p>Lugar: {{ evento.lugar }}</p>
 			<p>Descripción: {{ evento.descripcion }}</p>
