@@ -41,7 +41,7 @@
 								<div class="card-content">
 								  <div class="row">
 								    <form id="searchForm" class="col s12" action="/advanced_search">
-								    	{% csrf_token %}
+								    	
 								      <div class="row">
 								        <div class="input-field col s12">
 								          <input id="first_name" type="text" name="name" class="validate">
@@ -64,9 +64,9 @@
 										  <div class="input-field col s12">
 										    <select name="type">
 										      <option value="" disabled selected>Choose a type</option>
-										      <option value="1">Sports</option>
-										      <option value="2">Culture</option>
-										      <option value="3">Others</option>
+										      {% for tipo_evento in tipo_eventos %}
+										      <option value="{{tipo_evento.id_tipoevento}}">{{tipo_evento.nombre_tipoevento}}</option>
+										      {% endfor %}
 										    </select>
 										    <label>Type</label>
 										  </div>
