@@ -1,0 +1,17 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<title>{{ evento.nombre }}</title>
+		</head>
+		<body>
+			<form action="/purchase/" method="get">
+				<label>Tipo de tarjeta: </label><input id="type_card" name="type_card" type="text"><br>
+				<label>Titular: </label><input id="name" name="name" type="text"><br>
+				<label>Número de tarjeta: </label><input id="card_number" name="card_number" type="number"<br>
+				<label>Fecha de Caducidad: </label><input id="card_expiry" name="card_expiry" type="date"><br>
+				<label>CVC: </label><input id="cvc" name="cvc" type="number"><br>
+				<input type="submit">Comprar</input>
+			</form>
+
+		</body>
+	</html>

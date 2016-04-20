@@ -16,7 +16,6 @@ CREATE TABLE public.eventos (
                 id_evento INTEGER NOT NULL DEFAULT nextval('public.eventos_id_evento_seq'),
                 nombre VARCHAR(50) NOT NULL,
                 imagen VARCHAR(75),
-                fecha DATE NOT NULL,
                 lugar VARCHAR(25) NOT NULL,
                 descripcion VARCHAR(250) NOT NULL,
                 precio NUMERIC NOT NULL,
@@ -31,18 +30,17 @@ CREATE TABLE public.eventos (
 
 ALTER SEQUENCE public.eventos_id_evento_seq OWNED BY public.eventos.id_evento;
 
-CREATE SEQUENCE public.horarios_id_horario_seq;
+CREATE SEQUENCE public.sesiones_id_sesion_seq;
 
-CREATE TABLE public.horarios (
-                id_horario INTEGER NOT NULL DEFAULT nextval('public.horarios_id_horario_seq'),
-                hora_inicio TIME NOT NULL,
-                hora_fin TIME NOT NULL,
+CREATE TABLE public.sesiones (
+                id_sesion INTEGER NOT NULL DEFAULT nextval('public.sesiones_id_sesion_seq'),
+                sesion TIMESTAMP NOT NULL,
                 id_evento INTEGER NOT NULL,
-                CONSTRAINT id_horario PRIMARY KEY (id_horario)
+                CONSTRAINT id_sesion PRIMARY KEY (id_sesion)
 );
 
 
-ALTER SEQUENCE public.horarios_id_horario_seq OWNED BY public.horarios.id_horario;
+ALTER SEQUENCE public.sesiones_id_sesion_seq OWNED BY public.sesiones.id_sesion;
 
 CREATE SEQUENCE public.entradas_id_entrada_seq;
 
@@ -56,6 +54,7 @@ CREATE TABLE public.entradas (
                 edad INTEGER NOT NULL,
                 email VARCHAR(50) NOT NULL,
                 id_evento INTEGER NOT NULL,
+                fecha_evento TIMESTAMP NOT NULL,
                 CONSTRAINT id_entrada PRIMARY KEY (id_entrada)
 );
 
@@ -76,7 +75,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.horarios ADD CONSTRAINT eventos_horarios_fk
+ALTER TABLE public.sesiones ADD CONSTRAINT eventos_sesiones_fk
 FOREIGN KEY (id_evento)
 REFERENCES public.eventos (id_evento)
 ON DELETE NO ACTION

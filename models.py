@@ -140,7 +140,6 @@ class Eventos(models.Model):
     id_evento = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     imagen = models.CharField(max_length=75, blank=True, null=True)
-    fecha = models.DateField()
     lugar = models.CharField(max_length=25)
     descripcion = models.CharField(max_length=250)
     precio = models.DecimalField(max_digits=65535, decimal_places=65535)
@@ -155,15 +154,14 @@ class Eventos(models.Model):
         db_table = 'eventos'
 
 
-class Horarios(models.Model):
-    id_horario = models.AutoField(primary_key=True)
-    hora_inicio = models.TimeField()
-    hora_fin = models.TimeField()
+class Sesiones(models.Model):
+    id_sesion = models.AutoField(primary_key=True)
+    sesion = models.DateTimeField()
     id_evento = models.ForeignKey(Eventos, models.DO_NOTHING, db_column='id_evento')
 
     class Meta:
         managed = False
-        db_table = 'horarios'
+        db_table = 'sesiones'
 
 
 class TipoEventos(models.Model):

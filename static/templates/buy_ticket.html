@@ -1,0 +1,21 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<title>{{ evento.nombre }}</title>
+		</head>
+		<body>
+			<form action="/personal_information/" method="get">
+				<p>Nombre: {{ evento.nombre }}</p>
+				<p>Lugar: {{ evento.lugar }}</p>
+				<p>Sesión: </p>
+                <select name="session" id="session">
+                    {% for sesion in sesiones %}
+                        <option value="{{sesion.id_sesion}}">{{sesion.sesion}}</option>
+                    {% endfor %}
+                </select><br>
+				<input type="submit">Siguiente</input>
+			</form>
+
+			{{evento_id}}
+		</body>
+	</html>

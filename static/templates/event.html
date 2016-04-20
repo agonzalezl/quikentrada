@@ -8,7 +8,10 @@
 			{% if evento.imagen %}
 			<img src="{{evento.imagen.url}}" width="150" heigth="150">
 			{% endif %}
-			<p>Fecha: {{ evento.fecha }}</p>
+			<p>Fecha de sesiones:</p>
+            {% for sesion in sesiones %}
+                {{sesion.sesion}}<br>
+            {% endfor %}
 			<p>Lugar: {{ evento.lugar }}</p>
 			<p>Descripción: {{ evento.descripcion }}</p>
 			<p>Capacidad: {{ evento.capacidad }}</p>
@@ -17,6 +20,7 @@
 			<h4>Consulta sobre disponibilidad</h4>
 			<p>Disponibilidad de entradas: {{disponibilidad}}</p>
 			<p>Precio de Entradas: € {{ evento.precio }}</p>
-
+			
+			<a href="/buy_ticket/?id={{evento.id_evento}}"><button>Comprar entrada</button></a>
 		</body>
 	</html>

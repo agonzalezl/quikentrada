@@ -133,7 +133,6 @@ class Eventos(models.Model):
     id_evento = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     imagen = models.FileField(max_length=75, blank=True, null=True)
-    fecha = models.DateField()
     lugar = models.CharField(max_length=25)
     descripcion = models.CharField(max_length=250)
     precio = models.DecimalField(max_digits=10, decimal_places=1)
@@ -179,6 +178,21 @@ class TipoEventos(models.Model):
     def __str__(self):
         return self.nombre_tipoevento
 
+class Sesiones(models.Model):
+    id_sesion = models.AutoField(primary_key=True)
+    sesion = models.DateTimeField()
+    id_evento = models.ForeignKey(Eventos, models.DO_NOTHING, db_column='id_evento')
+
+    class Meta:
+        managed = False
+        db_table = 'sesiones'
+        verbose_name = 'Sesion'
+        verbose_name_plural = 'Sesiones'
+
+    def __str__(self):
+        return "%s - %s"%(self.id_evento, self.sesion)
+
 admin.site.register(Eventos)
 admin.site.register(TipoEventos)
 admin.site.register(Horarios)
+admin.site.register(Sesiones)
