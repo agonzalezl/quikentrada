@@ -90,7 +90,12 @@
 									</div>
 						      		<div id="advancedSearchDiv" class="row" style="height:0px; overflow:hidden; margin-bottom: 0px;">
 										<div class="col s4">
-								      		<input placeholder="Tipo" id="search" name="type" type="text" class="validate">
+										    <select id="prueba" name="type" onchange="if($(this).val()!='')$('.select-wrapper input').addClass('valid');" >
+												<option value="" disabled selected>Choose a type</option>
+												{% for tipo_evento in tipo_eventos %}
+												<option value="{{tipo_evento.id_tipoevento}}">{{tipo_evento.nombre_tipoevento}}</option>
+												{% endfor %}
+										    </select> 
 										</div>
 										<div class="col s4">
 								      		<input placeholder="Lugar" id="search" name="location" type="text" class="validate">
@@ -121,8 +126,10 @@
 		function autoHeightAnimate(element, time){
 		  	var curHeight = element.height(), // Get Default Height
 		        autoHeight = element.css('height', 'auto').height(); // Get Auto Height
-		    	  element.height(curHeight); // Reset to Default Height
-		    	  element.stop().animate({ height: autoHeight }, parseInt(time)); // Animate to Auto Height
+		    	element.height(curHeight); // Reset to Default Height
+		    	element.stop().animate({ height: autoHeight }, parseInt(time), function() {
+ 					element.css('overflow','visible');
+  				});
 		}
     
 		$( document ).ready(function() {
