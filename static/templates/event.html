@@ -52,9 +52,6 @@
 								            {% for sesion in sesiones %}
 								      
 								            {% endfor %}
-											
-											<a href="/buy_ticket/?id={{evento.id_evento}}"><button>Ignorar esto</button></a>
-
 
 										</div>
 									</div>
@@ -75,7 +72,7 @@
 															<br><h6>20€</h>
 														</div>
 														<div class="col s2">
-															<br> <a class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
+															<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId=1" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
 														</div>
 													</div>
 												</li>
@@ -92,7 +89,7 @@
 															<br><h6>20€</h>
 														</div>
 														<div class="col s2">
-															<br> <a class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
+															<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId=1" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
 														</div>
 													</div>
 												</li>
@@ -109,7 +106,7 @@
 															<br><h6>20€</h>
 														</div>
 														<div class="col s2">
-															<br> <a class="waves-effect waves-light btn disabled amber darken-3" onclick="" >Comprar</a>	
+															<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId=1" class="waves-effect waves-light btn disabled amber darken-3" onclick="" >Comprar</a>	
 														</div>
 													</div>
 												</li>
