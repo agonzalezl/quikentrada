@@ -1,26 +1,130 @@
-<!DOCTYPE>
-	<html>
-		<head>
-			<title>{{ evento.nombre }}</title>
-		</head>
-		<body>
-			<p>Nombre: {{ evento.nombre }}</p>
-			{% if evento.imagen %}
-			<img src="{{evento.imagen.url}}" width="150" heigth="150">
-			{% endif %}
-			<p>Fecha de sesiones:</p>
-            {% for sesion in sesiones %}
-                {{sesion.sesion}}<br>
-            {% endfor %}
-			<p>Lugar: {{ evento.lugar }}</p>
-			<p>Descripción: {{ evento.descripcion }}</p>
-			<p>Capacidad: {{ evento.capacidad }}</p>
-<!-- 			<p>Entradas Vendidas: {{ evento.entradas_vendidas }}</p> -->
+{% load staticfiles %}
+<!DOCTYPE html>
+  <html>
+    <head>
+    	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
+    	<link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"  media="screen,projection"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    	<style>
+      		.contImg{
+      		   	width: 100%;
+				padding-top: 100%; 	
+    			background-size: cover;
+    			background-position: 50% 50%;				
+      		}
+    	</style>
+    </head>
 
-			<h4>Consulta sobre disponibilidad</h4>
-			<p>Disponibilidad de entradas: {{disponibilidad}}</p>
-			<p>Precio de Entradas: € {{ evento.precio }}</p>
-			
-			<a href="/buy_ticket/?id={{evento.id_evento}}"><button>Comprar entrada</button></a>
-		</body>
-	</html>
+    <body>
+		<header id="navbar">
+			<div class="navbar-fixed">
+				<nav>
+					<div class="nav-wrapper">
+					<a href="/" class="brand-logo center">Quikentrada</a>
+					</div>
+				</nav>
+			</div>
+		</header>
+	
+		<main>
+			<div class="container">
+				<div id="structure" class="section">
+					<div class="row">
+						<div class="col s10 offset-s1">
+							<div class="card hoverable">
+								<div class="card-content">
+
+									<div class="row">
+										<div class="input-field col s3 contImg">
+											<div class="contImg" style="background-image:url({{evento.imagen.url}});"> </div>
+										</div>
+
+										<div class="input-field col s9">
+											<h5>{{ evento.nombre }}</h5>
+											<p>Descripción: {{ evento.descripcion }}</p>
+
+											{% if evento.imagen %}
+											
+											{% endif %}
+
+								            {% for sesion in sesiones %}
+								      
+								            {% endfor %}
+											
+											<a href="/buy_ticket/?id={{evento.id_evento}}"><button>Ignorar esto</button></a>
+
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col s12">
+											<ul class="collection with-header">
+												<li class="collection-header"><h4>Sesiones Disponibles</h4></li>
+												<li class="collection-item avatar">
+													<i class="material-icons circle green">check</i>
+													<div class="row">
+														<div class="col s9">
+															<span class="title">Barcelona</span>
+															<p>30-05-2016<br>
+															300 available
+															</p>	
+														</div>
+														<div class="col s1">
+															<br><h6>20€</h>
+														</div>
+														<div class="col s2">
+															<br> <a class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
+														</div>
+													</div>
+												</li>
+												<li class="collection-item avatar">
+													<i class="material-icons circle green">check</i>
+													<div class="row">
+														<div class="col s9">
+															<span class="title">Madrid</span>
+															<p>30-05-2016<br>
+															300 available
+															</p>	
+														</div>
+														<div class="col s1">
+															<br><h6>20€</h>
+														</div>
+														<div class="col s2">
+															<br> <a class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
+														</div>
+													</div>
+												</li>
+												<li class="collection-item avatar">
+													<i class="material-icons circle grey">close</i>
+													<div class="row">
+														<div class="col s9">
+															<span class="title">Sevilla</span>
+															<p>30-05-2016<br>
+															Sold Out
+															</p>	
+														</div>
+														<div class="col s1">
+															<br><h6>20€</h>
+														</div>
+														<div class="col s2">
+															<br> <a class="waves-effect waves-light btn disabled amber darken-3" onclick="" >Comprar</a>	
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    </body>
+  </html>
