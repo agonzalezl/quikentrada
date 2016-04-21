@@ -24,7 +24,7 @@
 			<div class="navbar-fixed">
 				<nav>
 					<div class="nav-wrapper">
-					<a href="#" class="brand-logo center">Quikentrada</a>
+					<a href="/" class="brand-logo center">Quikentrada</a>
 					</div>
 				</nav>
 			</div>
@@ -34,6 +34,8 @@
 			<div class="container">
 				<div id="structure" class="section">
 					<div class="row">
+						
+
 						<div class="col s3">
 							<div class="card hoverable" style="background-color: #1A1F54;">
 								<div class="card-content">
@@ -42,19 +44,19 @@
 								    	
 								      <div class="row">
 								        <div class="input-field col s12">
-								          <input id="first_name" type="text" name="name" class="validate">
+								          <input id="first_name" type="text" name="name" class="validate" value="{{ search.name }}" >
 								          <label for="first_name">Event</label>
 								        </div>
 								      </div>
 								      <div class="row">
 								        <div class="input-field col s12">
 								          <label id="dateLabel" name="date_start" for="date">Date</label>
-								          <input id="date" name="date" type="date" class="datepicker" onchange="$('#dateLabel').addClass('active')">
+								          <input placeholder="Fecha" id="date_start" name="date_start" type="text" value="{{ search.date_start }}" class="datepicker validate" onchange="$('#dateLabel').addClass('active');">
 								        </div>
 								      </div>
 								      <div class="row">
 								        <div class="input-field col s12">
-								          <input id="" type="text" name="location" class="validate">
+								          <input id="" type="text" name="location" value="{{ search.location }}" class="validate">
 								          <label for="password">Place</label>
 								        </div>
 								      </div>
@@ -81,20 +83,20 @@
 							</div>
 						</div>
 
-									{% for evento in eventos %}
-										
-										<div class="col s3">
-											<div class="card hoverable" onclick="location.href ='/event/?id={{evento.id_evento}}'" style="cursor:pointer;">
-										            <div class="card-image contImg" style="background-image:url({{evento.imagen.url}});">
-										            </div>
-												<div class="card-content">
-													<h5>{{ evento.nombre }}</h5>
-													{{ evento.descripcion }}
-												</div>
-											</div>
-										</div>
+					{% for evento in eventos %}
+						
+						<div class="col s3">
+							<div class="card hoverable" onclick="location.href ='/event/?id={{evento.id_evento}}'" style="cursor:pointer;">
+						            <div class="card-image contImg" style="background-image:url({{evento.imagen.url}});">
+						            </div>
+								<div class="card-content">
+									<h5>{{ evento.nombre }}</h5>
+									{{ evento.descripcion }}
+								</div>
+							</div>
+						</div>
 
-									{% endfor %}
+					{% endfor %}
 
 
 					</div>
@@ -107,8 +109,9 @@
       <script type="text/javascript">
     	$( document ).ready(function() {
 			$('.datepicker').pickadate({
-    			selectMonths: true, // Creates a dropdown to control month
-    			selectYears: 15 // Creates a dropdown of 15 years to control year
+    			selectMonths: true,
+    			selectYears: 15,
+    			format: 'yyyy-mm-dd'   
 			});
 			$('select').material_select();
 		});

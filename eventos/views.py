@@ -9,8 +9,8 @@ from django import forms
 
 # Create your views here.
 def index(request):
-    eventos = Eventos.objects.all()
-    return render(request, 'index.html', {'eventos': eventos})
+    tipo_eventos = TipoEventos.objects.all()
+    return render(request, 'index.html', {'tipo_eventos':tipo_eventos})
 
 def login_user(request):
     logout(request)
@@ -62,7 +62,7 @@ def advanced_search(request):
          queryset.add(Q(tipo_evento=type_event), Q.OR)
 
     eventList = Eventos.objects.filter(queryset)
-    return render(request, 'advanced_search.html', {'eventos':eventList, 'tipo_eventos':tipo_eventos})
+    return render(request, 'advanced_search.html', {'eventos':eventList, 'tipo_eventos':tipo_eventos, 'search':  { 'name': name, 'date_start':date_start, 'location':location } })
 
 def buy_ticket(request):
     id_event = request.GET.get('id')

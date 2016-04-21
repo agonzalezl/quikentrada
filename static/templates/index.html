@@ -98,10 +98,10 @@
 										    </select> 
 										</div>
 										<div class="col s4">
-								      		<input placeholder="Lugar" id="search" name="location" type="text" class="validate">
+								      		<input placeholder="Lugar" id="location" name="location" type="text" class="validate">
 										</div>
 										<div class="col s4">
-								      		<input placeholder="Fecha" id="search" name="date_start" type="date" class="validate datepicker">
+								      		<input placeholder="Fecha" id="date_start" name="date_start" type="text" class="datepicker validate" onchange="$('#dateLabel').addClass('active');">
 										</div>
 									</div>
 									<div class="col s12 m12" style="padding-left:20px; padding-right:20px;">
@@ -134,8 +134,9 @@
     
 		$( document ).ready(function() {
 			$('.datepicker').pickadate({
-    			selectMonths: true, // Creates a dropdown to control month
-    			selectYears: 15 // Creates a dropdown of 15 years to control year
+    			selectMonths: true,
+    			selectYears: 15,
+    			format: 'yyyy-mm-dd'   
 			});
 			$('select').material_select();
 		});
