@@ -54,7 +54,6 @@ CREATE TABLE public.entradas (
                 telefono VARCHAR(25) NOT NULL,
                 edad INTEGER NOT NULL,
                 email VARCHAR(50) NOT NULL,
-                id_evento INTEGER NOT NULL,
                 id_sesion INTEGER NOT NULL,
                 CONSTRAINT id_entrada PRIMARY KEY (id_entrada)
 );
@@ -65,13 +64,6 @@ ALTER SEQUENCE public.entradas_id_entrada_seq OWNED BY public.entradas.id_entrad
 ALTER TABLE public.eventos ADD CONSTRAINT tipo_eventos_eventos_fk
 FOREIGN KEY (tipo_evento)
 REFERENCES public.tipo_eventos (id_tipoevento)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
-ALTER TABLE public.entradas ADD CONSTRAINT eventos_entradas_fk
-FOREIGN KEY (id_evento)
-REFERENCES public.eventos (id_evento)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;

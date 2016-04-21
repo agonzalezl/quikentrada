@@ -129,7 +129,6 @@ class Entradas(models.Model):
     telefono = models.CharField(max_length=25)
     edad = models.IntegerField()
     email = models.CharField(max_length=50)
-    id_evento = models.ForeignKey('Eventos', models.DO_NOTHING, db_column='id_evento')
     id_sesion = models.ForeignKey('Sesiones', models.DO_NOTHING, db_column='id_sesion')
 
     class Meta:
