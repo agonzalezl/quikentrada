@@ -112,7 +112,6 @@ class DjangoSession(models.Model):
         managed = False
         db_table = 'django_session'
 
-
 class Entradas(models.Model):
     id_entrada = models.AutoField(primary_key=True)
     fecha_compra = models.DateTimeField()
@@ -123,17 +122,19 @@ class Entradas(models.Model):
     edad = models.IntegerField()
     email = models.CharField(max_length=50)
     id_evento = models.ForeignKey('Eventos', models.DO_NOTHING, db_column='id_evento')
+    id_sesion = models.ForeignKey('Sesiones', models.DO_NOTHING, db_column='id_sesion')
 
     class Meta:
         managed = False
         db_table = 'entradas'
+        verbose_name = 'Entrada'
+        verbose_name_plural = 'Entradas'
 
 
 class Eventos(models.Model):
     id_evento = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     imagen = models.FileField(max_length=75, blank=True, null=True)
-    lugar = models.CharField(max_length=25)
     descripcion = models.CharField(max_length=250)
     precio = models.DecimalField(max_digits=10, decimal_places=1)
     capacidad = models.IntegerField()
@@ -151,20 +152,6 @@ class Eventos(models.Model):
     def __str__(self):
         return self.nombre
 
-
-class Horarios(models.Model):
-    id_horario = models.AutoField(primary_key=True)
-    hora_inicio = models.TimeField()
-    hora_fin = models.TimeField()
-    id_evento = models.ForeignKey(Eventos, models.DO_NOTHING, db_column='id_evento')
-
-    class Meta:
-        managed = False
-        db_table = 'horarios'
-        verbose_name = 'Horario'
-        verbose_name_plural = 'Horarios'
-
-
 class TipoEventos(models.Model):
     id_tipoevento = models.AutoField(primary_key=True)
     nombre_tipoevento = models.CharField(max_length=25)
@@ -180,6 +167,8 @@ class TipoEventos(models.Model):
 
 class Sesiones(models.Model):
     id_sesion = models.AutoField(primary_key=True)
+    ciudad = models.CharField(max_length=25)
+    lugar = models.CharField(max_length=25)
     sesion = models.DateTimeField()
     id_evento = models.ForeignKey(Eventos, models.DO_NOTHING, db_column='id_evento')
 
@@ -194,5 +183,5 @@ class Sesiones(models.Model):
 
 admin.site.register(Eventos)
 admin.site.register(TipoEventos)
-admin.site.register(Horarios)
+admin.site.register(Entradas)
 admin.site.register(Sesiones)

@@ -130,6 +130,7 @@ class Entradas(models.Model):
     edad = models.IntegerField()
     email = models.CharField(max_length=50)
     id_evento = models.ForeignKey('Eventos', models.DO_NOTHING, db_column='id_evento')
+    id_sesion = models.ForeignKey('Sesiones', models.DO_NOTHING, db_column='id_sesion')
 
     class Meta:
         managed = False
@@ -140,7 +141,6 @@ class Eventos(models.Model):
     id_evento = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     imagen = models.CharField(max_length=75, blank=True, null=True)
-    lugar = models.CharField(max_length=25)
     descripcion = models.CharField(max_length=250)
     precio = models.DecimalField(max_digits=65535, decimal_places=65535)
     capacidad = models.IntegerField()
@@ -156,6 +156,8 @@ class Eventos(models.Model):
 
 class Sesiones(models.Model):
     id_sesion = models.AutoField(primary_key=True)
+    ciudad = models.CharField(max_length=25)
+    lugar = models.CharField(max_length=25)
     sesion = models.DateTimeField()
     id_evento = models.ForeignKey(Eventos, models.DO_NOTHING, db_column='id_evento')
 

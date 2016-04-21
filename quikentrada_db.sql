@@ -16,7 +16,6 @@ CREATE TABLE public.eventos (
                 id_evento INTEGER NOT NULL DEFAULT nextval('public.eventos_id_evento_seq'),
                 nombre VARCHAR(50) NOT NULL,
                 imagen VARCHAR(75),
-                lugar VARCHAR(25) NOT NULL,
                 descripcion VARCHAR(250) NOT NULL,
                 precio NUMERIC NOT NULL,
                 capacidad INTEGER NOT NULL,
@@ -34,6 +33,8 @@ CREATE SEQUENCE public.sesiones_id_sesion_seq;
 
 CREATE TABLE public.sesiones (
                 id_sesion INTEGER NOT NULL DEFAULT nextval('public.sesiones_id_sesion_seq'),
+                ciudad VARCHAR(25) NOT NULL,
+                lugar VARCHAR(25) NOT NULL,
                 sesion TIMESTAMP NOT NULL,
                 id_evento INTEGER NOT NULL,
                 CONSTRAINT id_sesion PRIMARY KEY (id_sesion)
@@ -54,7 +55,7 @@ CREATE TABLE public.entradas (
                 edad INTEGER NOT NULL,
                 email VARCHAR(50) NOT NULL,
                 id_evento INTEGER NOT NULL,
-                fecha_evento TIMESTAMP NOT NULL,
+                id_sesion INTEGER NOT NULL,
                 CONSTRAINT id_entrada PRIMARY KEY (id_entrada)
 );
 
@@ -78,6 +79,13 @@ NOT DEFERRABLE;
 ALTER TABLE public.sesiones ADD CONSTRAINT eventos_sesiones_fk
 FOREIGN KEY (id_evento)
 REFERENCES public.eventos (id_evento)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.entradas ADD CONSTRAINT sesiones_entradas_fk
+FOREIGN KEY (id_sesion)
+REFERENCES public.sesiones (id_sesion)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
