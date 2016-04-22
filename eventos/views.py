@@ -45,24 +45,27 @@ def advanced_search(request):
 
     name = request.GET.get('name')
     date_start = request.GET.get('date_start')
-    date_end = request.GET.get('date_end')
     location = request.GET.get('location')
     type_event = request.GET.get('type')
 
     if name:
-        queryset.add(Q(nombre__icontains=name), Q.OR)
-
-    if date_start and date_end:
-        queryset.add(Q(fecha__range=(date_start, date_end)), Q.OR)
-
-    if location:
-        queryset.add(Q(lugar__icontains=location), Q.OR)
+        queryset.add(Q(nombre__icontains=name), Q.AND)
 
     if type_event:
-         queryset.add(Q(tipo_evento=type_event), Q.OR)
+         queryset.add(Q(tipo_evento=type_event), Q.AND)
+
+    if date_start:
+        queryset.add(Q(sesiones__sesion__date=date_start), Q.AND)
+
+    if location:
+        queryset.add(Q(sesiones__ciudad__icontains=location), Q.AND)
 
     eventList = Eventos.objects.filter(queryset)
-    return render(request, 'advanced_search.html', {'eventos':eventList, 'tipo_eventos':tipo_eventos, 'search':  { 'name': name, 'date_start':date_start, 'location':location } })
+
+    return render(request, 'advanced_search.html', 
+        {'eventos':eventList, 
+        'tipo_eventos':tipo_eventos, 
+        'search':  { 'name': name, 'date_start':date_start, 'location':location } })
 
 def buy_ticket(request):
     id_event = request.GET.get('id')
