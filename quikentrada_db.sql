@@ -18,8 +18,6 @@ CREATE TABLE public.eventos (
                 imagen VARCHAR(75),
                 descripcion VARCHAR(250) NOT NULL,
                 precio NUMERIC NOT NULL,
-                capacidad INTEGER NOT NULL,
-                entradas_vendidas INTEGER DEFAULT 0 NOT NULL,
                 consultas INTEGER DEFAULT 0 NOT NULL,
                 estado VARCHAR(25) NOT NULL,
                 tipo_evento INTEGER NOT NULL,
@@ -36,6 +34,8 @@ CREATE TABLE public.sesiones (
                 ciudad VARCHAR(25) NOT NULL,
                 lugar VARCHAR(25) NOT NULL,
                 sesion TIMESTAMP NOT NULL,
+                capacidad INTEGER NOT NULL,
+                entradas_vendidas INTEGER DEFAULT 0 NOT NULL,
                 id_evento INTEGER NOT NULL,
                 CONSTRAINT id_sesion PRIMARY KEY (id_sesion)
 );

@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from eventos.models import *
 from django.db.models import Q # for advanced search
-from django import forms
 
 # Create your views here.
 def index(request):
@@ -35,9 +34,13 @@ def event(request):
     id_event = request.GET.get('id')
     evento = Eventos.objects.get(pk=id_event)
     sesiones = Sesiones.objects.filter(id_evento=id_event) #event sessions
-    disponibilidad = evento.capacidad - evento.entradas_vendidas
+    # disponibilidad = evento.capacidad - evento.entradas_vendidas
     request.session["id_evento"] = evento.id_evento
-    return render(request, 'event.html', {'evento': evento, 'sesiones':sesiones, 'disponibilidad':disponibilidad})
+    return render(request, 'event.html', {
+        'evento': evento, 
+        'sesiones':sesiones, 
+        # 'disponibilidad':disponibilidad
+        })
 
 def advanced_search(request):
     tipo_eventos = TipoEventos.objects.all()

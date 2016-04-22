@@ -142,8 +142,6 @@ class Eventos(models.Model):
     imagen = models.CharField(max_length=75, blank=True, null=True)
     descripcion = models.CharField(max_length=250)
     precio = models.DecimalField(max_digits=65535, decimal_places=65535)
-    capacidad = models.IntegerField()
-    entradas_vendidas = models.IntegerField()
     consultas = models.IntegerField()
     estado = models.CharField(max_length=25)
     tipo_evento = models.ForeignKey('TipoEventos', models.DO_NOTHING, db_column='tipo_evento')
@@ -158,6 +156,8 @@ class Sesiones(models.Model):
     ciudad = models.CharField(max_length=25)
     lugar = models.CharField(max_length=25)
     sesion = models.DateTimeField()
+    capacidad = models.IntegerField()
+    entradas_vendidas = models.IntegerField()
     id_evento = models.ForeignKey(Eventos, models.DO_NOTHING, db_column='id_evento')
 
     class Meta:
