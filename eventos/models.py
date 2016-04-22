@@ -114,7 +114,7 @@ class DjangoSession(models.Model):
 
 class Entradas(models.Model):
     id_entrada = models.AutoField(primary_key=True)
-    fecha_compra = models.DateTimeField()
+    fecha_compra = models.DateTimeField(auto_now_add=True)
     nombre = models.CharField(max_length=25)
     apellido = models.CharField(max_length=25)
     dni = models.CharField(max_length=10)

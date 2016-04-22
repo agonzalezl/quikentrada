@@ -41,12 +41,6 @@ urlpatterns = [
     # "buy_ticket" URL
     url(r'^buy_ticket', views.buy_ticket, name="buy_ticket"),
 
-    # "personal_information" URL
-    url(r'^personal_information', views.personal_information, name="personal_information"),
-
-    # "account_data" URL
-    url(r'^account_data', views.account_data, name="account_data"),
-
     # "purchase" URL
     url(r'^purchase', views.purchase, name="purchase"),
 ]

@@ -59,40 +59,25 @@
 										<div class="col s12">
 											<ul class="collection with-header">
 												<li class="collection-header"><h4>Sesiones Disponibles</h4></li>
+												{% for sesion in sesiones %}
 												<li class="collection-item avatar">
 													<i class="material-icons circle green">check</i>
 													<div class="row">
 														<div class="col s9">
-															<span class="title">Barcelona</span>
-															<p>30-05-2016<br>
-															300 available
+															<span class="title">{{sesion.ciudad}} ({{sesion.lugar}})</span>
+															<p>{{sesion.sesion}}<br>
+															{{sesion.disponible}} available
 															</p>	
 														</div>
 														<div class="col s1">
-															<br><h6>20€</h>
+															<br><h6>{{sesion.id_evento.precio}}€</h>
 														</div>
 														<div class="col s2">
-															<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId=1" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
+															<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId={{sesion.id_sesion}}" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
 														</div>
 													</div>
 												</li>
-												<li class="collection-item avatar">
-													<i class="material-icons circle green">check</i>
-													<div class="row">
-														<div class="col s9">
-															<span class="title">Madrid</span>
-															<p>30-05-2016<br>
-															300 available
-															</p>	
-														</div>
-														<div class="col s1">
-															<br><h6>20€</h>
-														</div>
-														<div class="col s2">
-															<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId=1" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
-														</div>
-													</div>
-												</li>
+												{% endfor %}
 												<li class="collection-item avatar">
 													<i class="material-icons circle grey">close</i>
 													<div class="row">
