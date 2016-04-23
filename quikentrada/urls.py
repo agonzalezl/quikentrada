@@ -29,9 +29,6 @@ urlpatterns = [
     # "login" URL
     url(r'^login/', views.login_user, name='login'),
 
-    # "search" URL
-    url(r'^search/', views.search, name="search"),
-
     # "advanced search" URL
     url(r'^advanced_search/', views.advanced_search, name="advanced_search"),
 

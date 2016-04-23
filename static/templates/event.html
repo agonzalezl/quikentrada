@@ -44,15 +44,6 @@
 										<div class="input-field col s9">
 											<h5>{{ evento.nombre }}</h5>
 											<p>{{ evento.descripcion }}</p>
-
-											{% if evento.imagen %}
-											
-											{% endif %}
-
-								            {% for sesion in sesiones %}
-								      
-								            {% endfor %}
-
 										</div>
 									</div>
 									<div class="row">
@@ -87,7 +78,7 @@
 															{% if sesion.disponible <= 0 %}
 																<br> <a class="waves-effect waves-light btn disabled amber darken-3">Comprar</a>	
 															{% else %}
-																<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId={{sesion.id_sesion}}" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>
+																<br> <a href="/buy_ticket/?id_event={{evento.id_evento}}&id_session={{sesion.id_sesion}}" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>
 															{% endif %}
 														</div>
 													</div>

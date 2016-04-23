@@ -25,13 +25,8 @@ def login_user(request):
                 return HttpResponseRedirect('/admin/')
     return render_to_response('login.html', context_instance=RequestContext(request))
 
-def search(request):
-    searched = request.GET['search']
-    eventList =  Eventos.objects.filter(nombre__icontains=searched)
-    return render(request, 'search.html', {'eventos':eventList, 'searched': searched})
-
 def event(request):
-    id_event = request.GET.get('id')
+    id_event = request.GET.get('id_event')
     evento = Eventos.objects.get(pk=id_event)
     sesiones = Sesiones.objects.filter(id_evento=id_event) #event sessions
     
@@ -75,21 +70,21 @@ def advanced_search(request):
         'search':  { 'name': name, 'date_start':date_start, 'location':location } })
 
 def buy_ticket(request):
-    id_event = request.GET.get('id')
-    evento = Eventos.objects.get(pk=id_event)   
-    sesiones = Sesiones.objects.filter(id_evento=id_event)
-    evento_id = request.session.get("id_evento")
-    return render(request, 'buy_ticket.html', {'evento':evento, 'evento_id':evento_id, 'sesiones':sesiones})
+    id_session = request.GET.get('id_session')
+    request.session["id_sesion"] = id_session
+    return render(request, 'buy_ticket.html')
 
 def purchase(request):
+    # id_sesion = request.sesion.get["id_sesion"]
     sesion = Sesiones.objects.get(pk=1)
+
     entrada = Entradas(
-        nombre='Alex', 
-        apellido='San', 
-        dni='123456789', 
-        telefono='123', 
-        edad=43, 
-        email='user@user.es', 
+        nombre=request.GET.get('name'), 
+        apellido=request.GET.get('surname'), 
+        dni=request.GET.get('dni'), 
+        telefono=request.GET.get('telephone'), 
+        edad=request.GET.get('age'), 
+        email=request.GET.get('email'), 
         id_sesion=sesion
         )
     entrada.save()
