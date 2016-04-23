@@ -75,8 +75,8 @@ def buy_ticket(request):
     return render(request, 'buy_ticket.html')
 
 def purchase(request):
-    # id_sesion = request.sesion.get["id_sesion"]
-    sesion = Sesiones.objects.get(pk=1)
+    id_sesion = request.session.get("id_sesion")
+    sesion = Sesiones.objects.get(pk=id_sesion)
 
     entrada = Entradas(
         nombre=request.GET.get('name'), 
