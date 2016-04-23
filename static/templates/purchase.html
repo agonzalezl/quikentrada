@@ -1,30 +1,101 @@
-<!DOCTYPE>
-	<html>
-		<head>
-			<title>Entrada - Formato Electrónico</title>
-		</head>
-		<body>
-			<p>Compra Realizada con éxito!</p>
-			<h1>Entrada - Formato Electrónico</h1>
-			<h2>Datos de la Entrada</h2>
-			Entrada Nro: <br>
-			Precio Entrada: € {{ evento.precio }}</p>
+{% load staticfiles %}
+<!DOCTYPE html>
+  <html>
+    <head>
+    	<link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"  media="screen,projection"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+    	input[type=text].invalid, .select-wrapper input.select-dropdown.valid, input[type=text].valid, input[type=date].valid{
+    		color: #000000;
+    	}
+    </style>
+	</head>
 
-			<h2>Datos del cliente</h2>
-			Nombre: {{name}}<br>
-			Apellido: {{last_name}}<br>
-			DNI: {{dni}}<br>
-			Teléfono: {{phone}}<br>
-			Edad: {{age}}<br>
-			Email: {{email}}<br>
+    <body>
+		<header id="navbar">
+			<div class="navbar-fixed">
+				<nav>
+					<div class="nav-wrapper">
+					<a href="/" class="brand-logo center">Quikentrada</a>
+					</div>
+				</nav>
+			</div>
+		</header>
+	
+		<main>
+			<div class="container">
+				<div id="structure" class="section">
+					<div class="row">
+						<div class="col s10 offset-s1">
+							<div class="card hoverable">
+								<div class="card-content">
+									<div class="row">
+										<div class="input-field col s10 offset-s1">
+										
+											<p>Compra Realizada con éxito!</p>
+											<h1>Entrada - Formato Electrónico</h1>
+											<h2>Datos de la Entrada</h2>
+											Entrada Nro: <br>
+											Precio Entrada: € {{ evento.precio }}</p>
 
-			<h2>Datos del evento</h2>
-			Nombre Evento: {{evento.nombre}}<br>
-			Fecha del Evento: {{sesion.sesion}}<br>
-			Ciudad: <br>
-			Lugar: {{ evento.lugar }}<br>
-			{% if evento.imagen %}
-			<img src="{{evento.imagen.url}}" width="150" heigth="150">
-			{% endif %}
-		</body>
-	</html>
+											<h2>Datos del cliente</h2>
+											Nombre: {{name}}<br>
+											Apellido: {{last_name}}<br>
+											DNI: {{dni}}<br>
+											Teléfono: {{phone}}<br>
+											Edad: {{age}}<br>
+											Email: {{email}}<br>
+
+											<h2>Datos del evento</h2>
+											Nombre Evento: {{evento.nombre}}<br>
+											Fecha del Evento: {{sesion.sesion}}<br>
+											Ciudad: <br>
+											Lugar: {{ evento.lugar }}<br>
+											{% if evento.imagen %}
+											<img src="{{evento.imagen.url}}" width="150" heigth="150">
+											{% endif %}	
+											<a class="waves-effect waves-light btn right amber darken-3 download-pdf" >Download Tickets</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jspdf.min.js' %}"></script>
+	<script>
+    	$( document ).ready(function() {
+    		var content = 	 '<div>'
+    						+'<h1>{{evento.nombre}}</h1>'	
+    						+''
+    						+'{{sesion.sesion}}'
+    						+'{{ evento.lugar }}'
+    						+'Quikentrada.com'
+    						+'</div>'
+    		var doc = new jsPDF();
+    		doc.fromHTML(content, 15, 15, {
+				'width': 170, 
+			});
+
+			$('.download-pdf').click(function(){
+				var file = 'entrada';
+				if (typeof doc !== 'undefined') {
+					doc.save(file + '.pdf');
+				} else if (typeof pdf !== 'undefined') {
+					setTimeout(function() {
+						pdf.save(file + '.pdf');
+					}, 2000);
+				} else {
+					alert('Error 0xE001BADF');
+				}
+			});
+		});
+	</script>
+    </body>
+  </html>
