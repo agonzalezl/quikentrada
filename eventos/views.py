@@ -87,7 +87,9 @@ def purchase(request):
         email=request.GET.get('email'), 
         id_sesion=sesion
         )
+    
     entrada.save()
+
     return render(request, 'purchase.html', {'entrada':entrada})
 
 

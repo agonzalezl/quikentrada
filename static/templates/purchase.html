@@ -36,22 +36,22 @@
 											<p>Compra Realizada con éxito!</p>
 											<h1>Entrada - Formato Electrónico</h1>
 											<h2>Datos de la Entrada</h2>
-											Entrada Nro: <br>
-											Precio Entrada: € {{ evento.precio }}</p>
+											Entrada Nro: {{entrada.id_entrada}}<br>
+											Precio Entrada: € {{entrada.id_sesion.id_evento.precio}}</p>
 
 											<h2>Datos del cliente</h2>
-											Nombre: {{name}}<br>
-											Apellido: {{last_name}}<br>
-											DNI: {{dni}}<br>
-											Teléfono: {{phone}}<br>
-											Edad: {{age}}<br>
-											Email: {{email}}<br>
+											Nombre: {{entrada.nombre}}<br>
+											Apellido: {{entrada.apellido}}<br>
+											DNI: {{entrada.dni}}<br>
+											Teléfono: {{entrada.telefono}}<br>
+											Edad: {{entrada.edad}}<br>
+											Email: {{entrada.email}}<br>
 
 											<h2>Datos del evento</h2>
-											Nombre Evento: {{evento.nombre}}<br>
-											Fecha del Evento: {{sesion.sesion}}<br>
-											Ciudad: <br>
-											Lugar: {{ evento.lugar }}<br>
+											Nombre Evento: {{entrada.id_sesion.id_evento.nombre}}<br>
+											Fecha del Evento: {{entrada.id_sesion.id_evento.fecha}}<br>
+											Ciudad: {{entrada.id_sesion.ciudad}}<br>
+											Lugar: {{entrada.id_sesion.lugar}}<br>
 											{% if evento.imagen %}
 											<img src="{{evento.imagen.url}}" width="150" heigth="150">
 											{% endif %}	
