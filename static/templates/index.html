@@ -90,7 +90,7 @@
 									</div>
 						      		<div id="advancedSearchDiv" class="row" style="height:0px; overflow:hidden; margin-bottom: 0px;">
 										<div class="col s4">
-										    <select id="prueba" name="type" onchange="if($(this).val()!='')$('.select-wrapper input').addClass('valid');" >
+										    <select id="type" name="type" onchange="if($(this).val()!='')$('.select-wrapper input').addClass('valid');" >
 												<option value="" disabled selected>Choose a type</option>
 												{% for tipo_evento in tipo_eventos %}
 												<option value="{{tipo_evento.id_tipoevento}}">{{tipo_evento.nombre_tipoevento}}</option>

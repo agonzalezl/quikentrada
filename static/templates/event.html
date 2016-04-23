@@ -43,7 +43,7 @@
 
 										<div class="input-field col s9">
 											<h5>{{ evento.nombre }}</h5>
-											<p>Descripción: {{ evento.descripcion }}</p>
+											<p>{{ evento.descripcion }}</p>
 
 											{% if evento.imagen %}
 											
@@ -59,42 +59,40 @@
 										<div class="col s12">
 											<ul class="collection with-header">
 												<li class="collection-header"><h4>Sesiones Disponibles</h4></li>
+
 												{% for sesion in sesiones %}
 												<li class="collection-item avatar">
+												{% if sesion.disponible <= 0 %}
+													<i class="material-icons circle grey">close</i>
+												{% else %}
 													<i class="material-icons circle green">check</i>
+												{% endif %}
 													<div class="row">
 														<div class="col s9">
 															<span class="title">{{sesion.ciudad}} ({{sesion.lugar}})</span>
 															<p>{{sesion.sesion}}<br>
-															{{sesion.disponible}} available
+
+															{% if sesion.disponible <= 0 %}
+																Sold Out
+															{% else %}
+																{{sesion.disponible}} available
+															{% endif %}
+
 															</p>	
 														</div>
 														<div class="col s1">
 															<br><h6>{{sesion.id_evento.precio}}€</h>
 														</div>
 														<div class="col s2">
-															<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId={{sesion.id_sesion}}" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>	
+															{% if sesion.disponible <= 0 %}
+																<br> <a class="waves-effect waves-light btn disabled amber darken-3">Comprar</a>	
+															{% else %}
+																<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId={{sesion.id_sesion}}" class="waves-effect waves-light btn amber darken-3" onclick="" >Comprar</a>
+															{% endif %}
 														</div>
 													</div>
 												</li>
 												{% endfor %}
-												<li class="collection-item avatar">
-													<i class="material-icons circle grey">close</i>
-													<div class="row">
-														<div class="col s9">
-															<span class="title">Sevilla</span>
-															<p>30-05-2016<br>
-															Sold Out
-															</p>	
-														</div>
-														<div class="col s1">
-															<br><h6>20€</h>
-														</div>
-														<div class="col s2">
-															<br> <a href="/buy_ticket/?id={{evento.id_evento}}&sesionId=1" class="waves-effect waves-light btn disabled amber darken-3" onclick="" >Comprar</a>	
-														</div>
-													</div>
-												</li>
 											</ul>
 										</div>
 									</div>
