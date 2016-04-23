@@ -39,7 +39,7 @@
 									<div class="row">
 										<div class="input-field col s12">
 
-											<form action="/purchase" method"post">
+											<form id="purchaseForm" action="/purchase" method"post">
 												<ul class="collapsible" data-collapsible="accordion">
 													<li>
 														<div class="collapsible-header active"><i class="material-icons">face</i>Personal Information</div>
@@ -122,9 +122,8 @@
 																<div class="input-field col s3 offset-s1">
 																	¿Estas seguro de que quieres realizar esta compra?
 																</div>
-																<input type="submit" value="BUY">
 																<div class="input-field col s3 offset-s1">
-																	<a href="/purchase" class="waves-effect waves-light btn right amber darken-3" >BUY</a>
+																	<a class="waves-effect waves-light btn right amber darken-3" onclick="$('#purchaseForm').submit()">BUY</a>
 																</div>
 															</div>
 														</div>
