@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from eventos.models import *
 from django.db.models import Q # for advanced search
+import time #for sleep
 
 # Create your views here.
 def index(request):
@@ -92,7 +93,7 @@ def purchase(request):
 
     sesion.entradas_vendidas += 1 #falta controlar aumento en timestamp
     sesion.save()
-
+    time.sleep(4)
     return render(request, 'purchase.html', {'entrada':entrada})
 
 

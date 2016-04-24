@@ -93,7 +93,7 @@
 			});
 
 			$('.download-pdf').click(function(){
-				var file = 'entrada';
+				var file = 'entrada_{{entrada.id_entrada}}';
 				if (typeof doc !== 'undefined') {
 					doc.save(file + '.pdf');
 				} else if (typeof pdf !== 'undefined') {
