@@ -90,6 +90,9 @@ def purchase(request):
     
     entrada.save()
 
+    sesion.entradas_vendidas += 1 #falta controlar aumento en timestamp
+    sesion.save()
+
     return render(request, 'purchase.html', {'entrada':entrada})
 
 

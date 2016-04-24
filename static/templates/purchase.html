@@ -36,7 +36,7 @@
 											<h1>Compra Realizada con éxito!</h1>
 											<h3>Datos de la Entrada</h3>
 											Entrada Nro: {{entrada.id_entrada}}<br>
-											Precio Entrada: € {{entrada.id_sesion.id_evento.precio}}</p>
+											Precio Entrada: {{entrada.id_sesion.id_evento.precio}} €</p>
 
 											<h3>Datos del cliente</h3>
 											Nombre: {{entrada.nombre}}<br>
@@ -72,10 +72,19 @@
     	$( document ).ready(function() {
     		var content = 	 '<div>'
     						+'<h1>{{entrada.id_sesion.id_evento.nombre}}</h1>'	
-    						+'{{entrada.id_sesion.id_evento.fecha}} <br>'
+    						+'{{entrada.id_sesion.sesion}} <br>'
     						+'{{entrada.id_sesion.ciudad}} <br>'
     						+'{{entrada.id_sesion.lugar}} <br>'
-    						+'{{entrada.id_entrada}} <br>'
+    						+'<h3>Entrada</h3>'
+    						+'Nro. {{entrada.id_entrada}} <br>'
+    						+'{{entrada.id_sesion.id_evento.precio}} <br>'
+    						+'<h3>Cliente</h3>'
+    						+'{{entrada.nombre}} <br>'
+							+'{{entrada.apellido}} <br>'
+							+'{{entrada.dni}} <br>'
+							+'{{entrada.telefono}} <br>'
+							+'{{entrada.edad}} <br>'
+							+'{{entrada.email}} <br>'
     						+'Quikentrada.com'
     						+'</div>'
     		var doc = new jsPDF();
