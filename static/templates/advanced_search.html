@@ -86,15 +86,26 @@
 						
 						<div class="col s3">
 							<div class="card hoverable" onclick="location.href ='/event/?id_event={{evento.id_evento}}'" style="cursor:pointer;">
-						            <div class="card-image contImg" style="background-image:url({{evento.imagen.url}});">
-						            </div>
+									{% if evento.imagen %}
+						            <div class="card-image contImg" style="background-image:url({{evento.imagen.url}});"> </div>
+
+									{% else %}
+										<div class="card-image contImg" style="background-image:url({% static 'img/default.jpg' %});"> </div>
+									{% endif %}
 								<div class="card-content">
 									<h5>{{ evento.nombre }}</h5>
 									{{ evento.descripcion }}
 								</div>
 							</div>
 						</div>
-
+					{% empty %}
+						<div class="col s5">
+							<div class="card hoverable">
+								<div class="card-content">
+									<p>No events found. Please, try it again with other parameters</p>
+								</div>
+							</div>
+						</div>
 					{% endfor %}
 
 
