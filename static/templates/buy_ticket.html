@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="col s10 offset-s1">
 							<div class="card hoverable">
-								<div class="card-content">
+								<div class="card-content" id="mainCard">
 									<div class="row">
 										<div class="input-field col s11 offset-s1">
 											<h3>Purchasing Details</h3>
@@ -55,18 +55,18 @@
 																	<label for="surname">Apellidos</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="age" type="text" name="age" class="validate" value="{{ search.name }}" style="color:#000000">
+																	<input id="age" type="number" name="age" class="validate" value="{{ search.name }}" style="color:#000000">
 																	<label for="age">Edad</label>
 																</div>
 															</div>
 
 															<div class="row">
 																<div class="input-field col s3 offset-s1">
-																	<input id="dni" type="text" name="dni" class="validate" value="{{ search.name }}" style="color:#000000">
+																	<input id="dni" type="number" name="dni" class="validate" value="{{ search.name }}" style="color:#000000">
 																	<label for="dni">DNI</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="telephone" type="text" name="telephone" class="validate" value="{{ search.name }}" style="color:#000000">
+																	<input id="telephone" type="number" name="telephone" class="validate" value="{{ search.name }}" style="color:#000000">
 																	<label for="telephone">Telefono</label>
 																</div>
 																<div class="input-field col s3">
@@ -96,18 +96,18 @@
 																	<label for="holder">Titular</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="number" type="text" name="number" class="validate" value="{{ search.name }}" style="color:#000000">
+																	<input type="number" id="number" name="number" class="validate" value="{{ search.name }}" style="color:#000000">
 																	<label for="number">Numero</label>
 																</div>
 															</div>
 
 															<div class="row">
 																<div class="input-field col s3 offset-s1">
-																	<input placeholder="mm/yy" id="expire_date" type="text" name="expire_date" class="validate" value="{{ search.name }}" style="color:#000000">
+																	<input maxlength="5" placeholder="mm/yy" id="expire_date" type="text" name="expire_date" class="validate" value="{{ search.name }}" style="color:#000000">
 																	<label for="expire_date">Fecha de Caducidad</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="cvc" type="text" name="cvc" class="validate" value="{{ search.name }}" style="color:#000000">
+																	<input id="cvc" type="number" name="cvc" class="validate" value="{{ search.name }}" style="color:#000000">
 																	<label for="cvc">CVC</label>
 																</div>
 															</div>
@@ -123,7 +123,7 @@
 																	¿Estas seguro de que quieres realizar esta compra?
 																</div>
 																<div class="input-field col s3 offset-s1">
-																	<a class="waves-effect waves-light btn right amber darken-3" onclick="$('#purchaseForm').submit()">BUY</a>
+																	<a class="waves-effect waves-light btn right amber darken-3" onclick="processBuy()">BUY</a>
 																</div>
 															</div>
 														</div>
@@ -147,6 +147,36 @@
 		$( document ).ready(function() {
 			$('select').material_select();
 		});
+
+		function processBuy(){
+			$('#purchaseForm').submit();
+			$('#mainCard').html(''
+				+'<div class="row">'
+					+'<div class="input-field col s4 offset-s4">'
+						+'<div style="margin: 0 auto; width: 75%;">'
+							+'<p>Processing order, please wait</p>'
+						+'</div>'
+					+'</div>'
+				+'</div>'
+				+'<div class="row">'
+					+'<div class="input-field col s4 offset-s4">'
+						+'<div style="width: 50%; margin: 0 auto;">'
+							+'<div class="preloader-wrapper big active">'
+								+'<div class="spinner-layer spinner-blue-only">'
+									+'<div class="circle-clipper left">'
+										+'<div class="circle"></div>'
+										+'</div><div class="gap-patch">'
+										+'<div class="circle"></div>'
+										+'</div><div class="circle-clipper right">'
+										+'<div class="circle"></div>'
+									+'</div>'
+								+'</div>'
+							+'</div>'
+						+'</div>'
+					+'</div>'
+				+'</div>'
+				);						
+		}
 	</script>
     </body>
   </html>
