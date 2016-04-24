@@ -76,24 +76,47 @@ def buy_ticket(request):
     return render(request, 'buy_ticket.html')
 
 def purchase(request):
-    id_sesion = request.session.get("id_sesion")
-    sesion = Sesiones.objects.get(pk=id_sesion)
+    #customer input values
+    number = request.GET.get('number')
+    expire_date = request.GET.get('expire_date')
+    cvc = request.GET.get('cvc')
 
-    entrada = Entradas(
-        nombre=request.GET.get('name'), 
-        apellido=request.GET.get('surname'), 
-        dni=request.GET.get('dni'), 
-        telefono=request.GET.get('telephone'), 
-        edad=request.GET.get('age'), 
-        email=request.GET.get('email'), 
-        id_sesion=sesion
-        )
+    #event
+    id_evento = request.session.get("id_evento")
+    evento = Eventos.objects.get(pk=id_evento)
+    # cuenta = GestionPago.objects.filter(numero_tarjeta=number).filter(fecha_caducidad=expire_date).filter(cvc=cvc)
+    try:
+        cuenta = GestionPago.objects.get(numero_tarjeta=number, fecha_caducidad=expire_date, cvc=cvc)
+    except GestionPago.DoesNotExist:
+        cuenta = None
     
-    entrada.save()
+    if cuenta is not None:
+        if cuenta.saldo >= evento.precio:
+            
+            id_sesion = request.session.get("id_sesion")
+            sesion = Sesiones.objects.get(pk=id_sesion)
 
-    sesion.entradas_vendidas += 1 #falta controlar aumento en timestamp
-    sesion.save()
-    time.sleep(4)
-    return render(request, 'purchase.html', {'entrada':entrada})
+            entrada = Entradas(
+                nombre=request.GET.get('name'), 
+                apellido=request.GET.get('surname'), 
+                dni=request.GET.get('dni'), 
+                telefono=request.GET.get('telephone'), 
+                edad=request.GET.get('age'), 
+                email=request.GET.get('email'), 
+                id_sesion=sesion
+                )
+            
+            entrada.save()
+
+            sesion.entradas_vendidas += 1 #falta controlar aumento en timestamp
+            sesion.save()
+            time.sleep(4)
+            return render(request, 'purchase.html', {'entrada':entrada})
+        else:
+            mensaje = "No autorizacion de pago!"
+            return render(request, 'purchase.html', {'mensaje':mensaje})
+    else:
+        mensaje = "Error de pago!"
+        return render(request, 'purchase.html', {'mensaje':mensaje})
 
 
