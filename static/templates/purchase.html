@@ -33,13 +33,12 @@
 									<div class="row">
 										<div class="input-field col s10 offset-s1">
 										
-											<p>Compra Realizada con éxito!</p>
-											<h1>Entrada - Formato Electrónico</h1>
-											<h2>Datos de la Entrada</h2>
+											<h1>Compra Realizada con éxito!</h1>
+											<h3>Datos de la Entrada</h3>
 											Entrada Nro: {{entrada.id_entrada}}<br>
 											Precio Entrada: € {{entrada.id_sesion.id_evento.precio}}</p>
 
-											<h2>Datos del cliente</h2>
+											<h3>Datos del cliente</h3>
 											Nombre: {{entrada.nombre}}<br>
 											Apellido: {{entrada.apellido}}<br>
 											DNI: {{entrada.dni}}<br>
@@ -47,7 +46,7 @@
 											Edad: {{entrada.edad}}<br>
 											Email: {{entrada.email}}<br>
 
-											<h2>Datos del evento</h2>
+											<h3>Datos del evento</h3>
 											Nombre Evento: {{entrada.id_sesion.id_evento.nombre}}<br>
 											Fecha del Evento: {{entrada.id_sesion.id_evento.fecha}}<br>
 											Ciudad: {{entrada.id_sesion.ciudad}}<br>
@@ -72,10 +71,11 @@
 	<script>
     	$( document ).ready(function() {
     		var content = 	 '<div>'
-    						+'<h1>{{evento.nombre}}</h1>'	
-    						+''
-    						+'{{sesion.sesion}}'
-    						+'{{ evento.lugar }}'
+    						+'<h1>{{entrada.id_sesion.id_evento.nombre}}</h1>'	
+    						+'{{entrada.id_sesion.id_evento.fecha}} <br>'
+    						+'{{entrada.id_sesion.ciudad}} <br>'
+    						+'{{entrada.id_sesion.lugar}} <br>'
+    						+'{{entrada.id_entrada}} <br>'
     						+'Quikentrada.com'
     						+'</div>'
     		var doc = new jsPDF();
