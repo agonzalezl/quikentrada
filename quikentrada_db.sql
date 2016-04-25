@@ -1,4 +1,18 @@
 
+CREATE SEQUENCE public.gestion_pago_id_gestionpago_seq;
+
+CREATE TABLE public.gestion_pago (
+                id_gestionpago INTEGER NOT NULL DEFAULT nextval('public.gestion_pago_id_gestionpago_seq'),
+                numero_tarjeta INTEGER NOT NULL,
+                fecha_caducidad VARCHAR(5) NOT NULL,
+                cvc INTEGER NOT NULL,
+                saldo NUMERIC NOT NULL,
+                CONSTRAINT id_gestionpago PRIMARY KEY (id_gestionpago)
+);
+
+
+ALTER SEQUENCE public.gestion_pago_id_gestionpago_seq OWNED BY public.gestion_pago.id_gestionpago;
+
 CREATE SEQUENCE public.tipo_eventos_id_tipoevento_seq;
 
 CREATE TABLE public.tipo_eventos (

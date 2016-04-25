@@ -162,6 +162,19 @@ class TipoEventos(models.Model):
     def __str__(self):
         return self.nombre_tipoevento
 
+class GestionPago(models.Model):
+    id_gestionpago = models.AutoField(primary_key=True)
+    numero_tarjeta = models.IntegerField()
+    fecha_caducidad = models.CharField(max_length=5)
+    cvc = models.IntegerField()
+    saldo = models.DecimalField(max_digits=10, decimal_places=1)
+
+    class Meta:
+        managed = False
+        db_table = 'gestion_pago'
+        verbose_name = 'Cuenta'
+        verbose_name_plural = 'Gestion de Medios de Pago'
+
 class Sesiones(models.Model):
     id_sesion = models.AutoField(primary_key=True)
     ciudad = models.CharField(max_length=25)
@@ -184,3 +197,4 @@ admin.site.register(Eventos)
 admin.site.register(TipoEventos)
 admin.site.register(Entradas)
 admin.site.register(Sesiones)
+admin.site.register(GestionPago)

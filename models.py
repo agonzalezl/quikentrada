@@ -151,6 +151,18 @@ class Eventos(models.Model):
         db_table = 'eventos'
 
 
+class GestionPago(models.Model):
+    id_gestionpago = models.AutoField(primary_key=True)
+    numero_tarjeta = models.IntegerField()
+    fecha_caducidad = models.CharField(max_length=5)
+    cvc = models.IntegerField()
+    saldo = models.DecimalField(max_digits=65535, decimal_places=65535)
+
+    class Meta:
+        managed = False
+        db_table = 'gestion_pago'
+
+
 class Sesiones(models.Model):
     id_sesion = models.AutoField(primary_key=True)
     ciudad = models.CharField(max_length=25)
