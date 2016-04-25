@@ -83,7 +83,7 @@
 						</div>
 
 					{% for evento in eventos %}
-						
+					
 						<div class="col s3">
 							<div class="card hoverable" onclick="location.href ='/event/?id_event={{evento.id_evento}}'" style="cursor:pointer;">
 									{% if evento.imagen %}
@@ -92,7 +92,7 @@
 									{% else %}
 										<div class="card-image contImg" style="background-image:url({% static 'img/default.jpg' %});"> </div>
 									{% endif %}
-								<div class="card-content">
+								<div class="card-content" style="height: 120px; overflow: auto;">
 									<h5>{{ evento.nombre }}</h5>
 									{{ evento.descripcion }}
 								</div>

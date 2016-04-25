@@ -37,7 +37,12 @@
 
 									<div class="row">
 										<div class="input-field col s3 contImg">
-											<div class="contImg" style="background-image:url({{evento.imagen.url}});"> </div>
+											{% if evento.imagen %}
+						            			<div class="contImg" style="background-image:url({{evento.imagen.url}});"> </div>
+											{% else %}
+												<div class="contImg" style="background-image:url({% static 'img/default.jpg' %});"> </div>
+											{% endif %}
+											
 										</div>
 
 										<div class="input-field col s9">
@@ -82,6 +87,10 @@
 														</div>
 													</div>
 												</li>
+												{% empty %}
+													<li class="collection-item">
+												 	<p>No sesions availables</p>
+												 	</li>
 												{% endfor %}
 											</ul>
 										</div>
