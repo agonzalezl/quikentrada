@@ -86,3 +86,29 @@ input[type=number].valid{
   border-bottom: 1px solid #1e88e5;
   box-shadow: 0px 1px 0px 0px #1e88e5; 
 }
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected,
+.picker__day--selected,
+.picker__date-display{
+  background-color: #ff8f00;
+}
+
+
+.picker__weekday-display {
+  background-color: #ff6f00;
+}
+
+.picker__close, .picker__today,
+.picker__day.picker__day--today{
+  color:#ff8f00;
+}
+
+button.picker__today:focus, button.picker__clear:focus, button.picker__close:focus {
+  background-color: #fff8e1;
+}
+
+.picker__nav--prev:hover,
+.picker__nav--next:hover {
+  background: #fff8e1;
+}
+
