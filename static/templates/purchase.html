@@ -22,7 +22,6 @@
 				</nav>
 			</div>
 		</header>
-	{% if not mensaje %}
 		<main>
 			<div class="container">
 				<div id="structure" class="section">
@@ -32,7 +31,7 @@
 								<div class="card-content">
 									<div class="row">
 										<div class="input-field col s10 offset-s1">
-										
+											{% if not mensaje %}
 											<h1>Compra Realizada con éxito!</h1>
 											<h3>Datos de la Entrada</h3>
 											Entrada Nro: {{entrada.id_entrada}}<br>
@@ -55,6 +54,11 @@
 											<img src="{{evento.imagen.url}}" width="150" heigth="150">
 											{% endif %}	
 											<a class="waves-effect waves-light btn right amber darken-3 download-pdf" >Download Tickets</a>
+											{% else %}
+												<h1> Compra no realizada</h1>
+											    {{ mensaje }}
+											    Consulte con su banco
+											{% endif %}
 										</div>
 									</div>
 								</div>
@@ -64,11 +68,6 @@
 				</div>
 			</div>
 		</main>
-	{% else %}
-		<script>
-		    alert('{{ mensaje }}');
-		</script>
-	{% endif %}
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/jspdf.min.js' %}"></script>
