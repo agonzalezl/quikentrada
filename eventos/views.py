@@ -7,11 +7,12 @@ from eventos.models import *
 from django.db.models import Q # for advanced search
 import time #for sleep
 
-# Create your views here.
+# "index" function
 def index(request):
     tipo_eventos = TipoEventos.objects.all()
     return render(request, 'index.html', {'tipo_eventos':tipo_eventos})
 
+# "login" function
 def login_user(request):
     logout(request)
     username = password = ''
@@ -26,6 +27,7 @@ def login_user(request):
                 return HttpResponseRedirect('/admin/')
     return render_to_response('login.html', context_instance=RequestContext(request))
 
+# "event" function
 def event(request):
     id_event = request.GET.get('id_event')
     evento = Eventos.objects.get(pk=id_event)
@@ -42,6 +44,7 @@ def event(request):
         'sesiones':sesiones, 
         })
 
+# "advanced_search" function
 def advanced_search(request):
     tipo_eventos = TipoEventos.objects.all()
     queryset = Q()
@@ -70,11 +73,13 @@ def advanced_search(request):
         'tipo_eventos':tipo_eventos, 
         'search':  { 'name': name, 'date_start':date_start, 'location':location } })
 
+# "buy_ticket" function
 def buy_ticket(request):
     id_session = request.GET.get('id_session')
     request.session["id_sesion"] = id_session
     return render(request, 'buy_ticket.html')
 
+# "purchase" function
 def purchase(request):
     #customer input values
     number = request.GET.get('number')
@@ -84,7 +89,7 @@ def purchase(request):
     #event
     id_evento = request.session.get("id_evento")
     evento = Eventos.objects.get(pk=id_evento)
-    # cuenta = GestionPago.objects.filter(numero_tarjeta=number).filter(fecha_caducidad=expire_date).filter(cvc=cvc)
+
     try:
         cuenta = GestionPago.objects.get(numero_tarjeta=number, fecha_caducidad=expire_date, cvc=cvc)
     except GestionPago.DoesNotExist:
@@ -108,7 +113,12 @@ def purchase(request):
             
             entrada.save()
 
-            sesion.entradas_vendidas += 1 #falta controlar aumento en timestamp
+            # Balance substraction
+            cuenta.saldo = cuenta.saldo - evento.precio 
+            cuenta.save()
+
+            # Event capacity substraction
+            sesion.entradas_vendidas += 1
             sesion.save()
             time.sleep(4)
             return render(request, 'purchase.html', {'entrada':entrada})
@@ -118,5 +128,3 @@ def purchase(request):
     else:
         mensaje = "Error de pago!"
         return render(request, 'purchase.html', {'mensaje':mensaje})
-
-

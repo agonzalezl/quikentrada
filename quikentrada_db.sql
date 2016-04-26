@@ -30,7 +30,7 @@ CREATE TABLE public.eventos (
                 id_evento INTEGER NOT NULL DEFAULT nextval('public.eventos_id_evento_seq'),
                 nombre VARCHAR(50) NOT NULL,
                 imagen VARCHAR(75),
-                descripcion VARCHAR(250) NOT NULL,
+                descripcion VARCHAR(500) NOT NULL,
                 precio NUMERIC NOT NULL,
                 consultas INTEGER DEFAULT 0 NOT NULL,
                 estado VARCHAR(25) NOT NULL,
