@@ -16,9 +16,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.conf.urls.static import static
-from django.contrib import admin
 from eventos import views
 from django.conf import settings
+
+from django.contrib import admin
+from django.contrib.admin.sites import AdminSite
+from adminplus.sites import AdminSitePlus
+import copy
+
+old = admin.site
+admin.site = AdminSitePlus()
+admin.sites.site = admin.site
+admin.site._registry = copy.copy(old._registry)
+admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
