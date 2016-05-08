@@ -4,7 +4,10 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from eventos.models import *
-from django.db.models import Q # for advanced search
+from django.db.models import Q, Count # for advanced
+from django.http import JsonResponse
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 import time #for sleep
 
 # "index" function
@@ -128,3 +131,26 @@ def purchase(request):
     else:
         mensaje = "Error de pago!"
         return render(request, 'purchase.html', {'mensaje':mensaje})
+
+
+@csrf_exempt
+def age_stats(request):
+    if request.method == 'POST':
+        post_text = request.POST.get('the_post')
+
+        data = []
+
+
+        for i in range(5):
+            gt = i*20
+            lt = gt+19
+            others =  Entradas.objects.filter( edad__range=(gt, lt) ).count()
+            c = Entradas.objects.filter( edad__range=(gt, lt) , id_sesion__id_evento__tipo_evento__nombre_tipoevento__icontains="Cultural").count()
+            d = Entradas.objects.filter( edad__range=(gt, lt) , id_sesion__id_evento__tipo_evento__nombre_tipoevento__icontains="Deportivo").count()
+
+            others = others - d - c
+
+            data.append({"Cultural": c, "Deportivo": d, "Otros": others})
+
+        # just return a JsonResponse
+        return JsonResponse(data, safe=False)

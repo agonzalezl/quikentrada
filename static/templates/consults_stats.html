@@ -1,0 +1,98 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="es-es" >
+<head>
+<title>Sitio administrativo | Sitio de administración de Django</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
+<link type="text/css" rel="stylesheet" href="{% static 'css/c3.min.css' %}"  media="screen,projection"/>
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class=" dashboard"
+  data-admin-utc-offset="7200">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">Administración de Django</a></h1>
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Bienvenido/a,
+                <strong>angel</strong>.
+            
+            
+                
+                    <a href="/">Ver el sitio</a> /
+                
+                
+                    
+                    
+                
+                
+                <a href="/admin/password_change/">Cambiar contraseña</a> /
+                
+                <a href="/admin/logout/">Terminar sesión</a>
+            
+        </div>
+        
+        
+        
+    </div>
+    <!-- END Header -->
+    
+
+    <!-- Content -->
+    <div id="content" class="colMS">
+        
+        <h1>Sitio administrativo</h1>
+        
+<div id="content-main">
+
+        <div class="app-auth module">
+        <table>
+        <caption>
+            <a href="/admin/auth/" class="section" title="Modelos en la aplicación Autenticación y autorización">Consultas</a>
+        </caption>
+
+            {% for evento in eventos %}
+             <tr class="">
+                    <th scope="row"><a>{{ evento.nombre }}</a></th>
+
+                    <td><a>{{ evento.consultas }}</a></td>
+            </tr>
+
+            {% endfor %}
+    
+        </table>
+        </div>
+
+
+
+</div>
+
+        
+ 
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+    </body>
+  </html>

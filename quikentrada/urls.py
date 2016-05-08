@@ -31,6 +31,7 @@ admin.site._registry = copy.copy(old._registry)
 admin.autodiscover()
 
 urlpatterns = [
+
     url(r'^admin/', admin.site.urls),
 
 	# "index" URL
@@ -50,6 +51,9 @@ urlpatterns = [
 
     # "purchase" URL
     url(r'^purchase', views.purchase, name="purchase"),
+
+
+    url(r'^admin/age_stats/', views.age_stats, name='age_stats')
 ]
 
 if settings.DEBUG:
