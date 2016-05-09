@@ -41,6 +41,10 @@ def event(request):
         sesion.disponible = sesion.capacidad - sesion.entradas_vendidas
     
     request.session["id_evento"] = evento.id_evento
+
+    #increasing number of event views
+    evento.consultas += 1
+    evento.save() 
     
     return render(request, 'event.html', {
         'evento': evento, 
