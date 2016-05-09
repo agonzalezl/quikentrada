@@ -68,6 +68,7 @@ CREATE TABLE public.entradas (
                 telefono VARCHAR(25) NOT NULL,
                 edad INTEGER NOT NULL,
                 email VARCHAR(50) NOT NULL,
+                cantidad_entradas INTEGER NOT NULL,
                 id_sesion INTEGER NOT NULL,
                 CONSTRAINT id_entrada PRIMARY KEY (id_entrada)
 );

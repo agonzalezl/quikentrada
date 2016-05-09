@@ -1,0 +1,2193 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authgroup"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authgrouppermissions"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authpermission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authuser"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authusergroups"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authuseruserpermissions"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "eventos",
+      "model": "djangoadminlog"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "eventos",
+      "model": "djangocontenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "eventos",
+      "model": "djangomigrations"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "eventos",
+      "model": "djangosession"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "eventos",
+      "model": "entradas"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "eventos",
+      "model": "eventos"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+      "app_label": "eventos",
+      "model": "tipoeventos"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": {
+      "app_label": "eventos",
+      "model": "gestionpago"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 21,
+    "fields": {
+      "app_label": "eventos",
+      "model": "sesiones"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "1p0ba39cy4m0uz8feo9k6djeycbk93hy",
+    "fields": {
+      "session_data": "YTU5MmJlNzI2NTc5ZmY0NWQ4ZjM5YjFlMjRmMmNhZjAzNjNiNTQ2ZDp7ImlkX3Nlc2lvbiI6IjIiLCJfYXV0aF91c2VyX2hhc2giOiI2YWU2YjhhNTNiYTQwYWM1OGQ3ZmQxZjc4MGY5MmJlMjdkNDdlYzZjIiwiaWRfZXZlbnRvIjoxLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+      "expire_date": "2016-05-23T16:26:45.407Z"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 4,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 5,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 6,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 7,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 8,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 9,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 10,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 11,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 12,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 16,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 17,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 18,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 19,
+    "fields": {
+      "name": "Can add auth group",
+      "content_type": 7,
+      "codename": "add_authgroup"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 20,
+    "fields": {
+      "name": "Can change auth group",
+      "content_type": 7,
+      "codename": "change_authgroup"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 21,
+    "fields": {
+      "name": "Can delete auth group",
+      "content_type": 7,
+      "codename": "delete_authgroup"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 22,
+    "fields": {
+      "name": "Can add auth group permissions",
+      "content_type": 8,
+      "codename": "add_authgrouppermissions"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 23,
+    "fields": {
+      "name": "Can change auth group permissions",
+      "content_type": 8,
+      "codename": "change_authgrouppermissions"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 24,
+    "fields": {
+      "name": "Can delete auth group permissions",
+      "content_type": 8,
+      "codename": "delete_authgrouppermissions"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add auth permission",
+      "content_type": 9,
+      "codename": "add_authpermission"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change auth permission",
+      "content_type": 9,
+      "codename": "change_authpermission"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete auth permission",
+      "content_type": 9,
+      "codename": "delete_authpermission"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 28,
+    "fields": {
+      "name": "Can add auth user",
+      "content_type": 10,
+      "codename": "add_authuser"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 29,
+    "fields": {
+      "name": "Can change auth user",
+      "content_type": 10,
+      "codename": "change_authuser"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 30,
+    "fields": {
+      "name": "Can delete auth user",
+      "content_type": 10,
+      "codename": "delete_authuser"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 31,
+    "fields": {
+      "name": "Can add auth user groups",
+      "content_type": 11,
+      "codename": "add_authusergroups"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 32,
+    "fields": {
+      "name": "Can change auth user groups",
+      "content_type": 11,
+      "codename": "change_authusergroups"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 33,
+    "fields": {
+      "name": "Can delete auth user groups",
+      "content_type": 11,
+      "codename": "delete_authusergroups"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 34,
+    "fields": {
+      "name": "Can add auth user user permissions",
+      "content_type": 12,
+      "codename": "add_authuseruserpermissions"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 35,
+    "fields": {
+      "name": "Can change auth user user permissions",
+      "content_type": 12,
+      "codename": "change_authuseruserpermissions"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 36,
+    "fields": {
+      "name": "Can delete auth user user permissions",
+      "content_type": 12,
+      "codename": "delete_authuseruserpermissions"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add django admin log",
+      "content_type": 13,
+      "codename": "add_djangoadminlog"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change django admin log",
+      "content_type": 13,
+      "codename": "change_djangoadminlog"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete django admin log",
+      "content_type": 13,
+      "codename": "delete_djangoadminlog"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 40,
+    "fields": {
+      "name": "Can add django content type",
+      "content_type": 14,
+      "codename": "add_djangocontenttype"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 41,
+    "fields": {
+      "name": "Can change django content type",
+      "content_type": 14,
+      "codename": "change_djangocontenttype"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 42,
+    "fields": {
+      "name": "Can delete django content type",
+      "content_type": 14,
+      "codename": "delete_djangocontenttype"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 43,
+    "fields": {
+      "name": "Can add django migrations",
+      "content_type": 15,
+      "codename": "add_djangomigrations"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 44,
+    "fields": {
+      "name": "Can change django migrations",
+      "content_type": 15,
+      "codename": "change_djangomigrations"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 45,
+    "fields": {
+      "name": "Can delete django migrations",
+      "content_type": 15,
+      "codename": "delete_djangomigrations"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 46,
+    "fields": {
+      "name": "Can add django session",
+      "content_type": 16,
+      "codename": "add_djangosession"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 47,
+    "fields": {
+      "name": "Can change django session",
+      "content_type": 16,
+      "codename": "change_djangosession"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 48,
+    "fields": {
+      "name": "Can delete django session",
+      "content_type": 16,
+      "codename": "delete_djangosession"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add Entrada",
+      "content_type": 17,
+      "codename": "add_entradas"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change Entrada",
+      "content_type": 17,
+      "codename": "change_entradas"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete Entrada",
+      "content_type": 17,
+      "codename": "delete_entradas"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 52,
+    "fields": {
+      "name": "Can add Evento",
+      "content_type": 18,
+      "codename": "add_eventos"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 53,
+    "fields": {
+      "name": "Can change Evento",
+      "content_type": 18,
+      "codename": "change_eventos"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 54,
+    "fields": {
+      "name": "Can delete Evento",
+      "content_type": 18,
+      "codename": "delete_eventos"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 55,
+    "fields": {
+      "name": "Can add Tipo de Evento",
+      "content_type": 19,
+      "codename": "add_tipoeventos"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 56,
+    "fields": {
+      "name": "Can change Tipo de Evento",
+      "content_type": 19,
+      "codename": "change_tipoeventos"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 57,
+    "fields": {
+      "name": "Can delete Tipo de Evento",
+      "content_type": 19,
+      "codename": "delete_tipoeventos"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 58,
+    "fields": {
+      "name": "Can add Cuenta",
+      "content_type": 20,
+      "codename": "add_gestionpago"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 59,
+    "fields": {
+      "name": "Can change Cuenta",
+      "content_type": 20,
+      "codename": "change_gestionpago"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 60,
+    "fields": {
+      "name": "Can delete Cuenta",
+      "content_type": 20,
+      "codename": "delete_gestionpago"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add Sesion",
+      "content_type": 21,
+      "codename": "add_sesiones"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change Sesion",
+      "content_type": 21,
+      "codename": "change_sesiones"
+    }
+  },
+  {
+    "model": "eventos.authpermission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete Sesion",
+      "content_type": 21,
+      "codename": "delete_sesiones"
+    }
+  },
+  {
+    "model": "eventos.authuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$24000$8KZVplFomFNS$8oFM1E+sMIY9wY7IcPrkHF54ZIGJQ4uwwDKE+Zdd3EM=",
+      "last_login": "2016-05-05T20:48:01.199Z",
+      "is_superuser": true,
+      "username": "user",
+      "first_name": "",
+      "last_name": "",
+      "email": "user@user.es",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2016-04-27T12:19:41.053Z"
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 1,
+    "fields": {
+      "action_time": "2016-04-27T12:21:04.710Z",
+      "object_id": "1",
+      "object_repr": "Deportivos",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 19,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 2,
+    "fields": {
+      "action_time": "2016-04-27T12:21:09.638Z",
+      "object_id": "2",
+      "object_repr": "Culturales",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 19,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 3,
+    "fields": {
+      "action_time": "2016-04-27T12:21:13.598Z",
+      "object_id": "3",
+      "object_repr": "Otros",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 19,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 4,
+    "fields": {
+      "action_time": "2016-04-27T12:21:17.886Z",
+      "object_id": "1",
+      "object_repr": "Adele",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 18,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 5,
+    "fields": {
+      "action_time": "2016-04-27T12:21:45.526Z",
+      "object_id": "1",
+      "object_repr": "Adele - 2016-05-24 22:00:00+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 21,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 6,
+    "fields": {
+      "action_time": "2016-04-27T12:22:58.275Z",
+      "object_id": "2",
+      "object_repr": "Adele - 2016-04-29 23:00:00+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 21,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 7,
+    "fields": {
+      "action_time": "2016-04-27T12:23:25.263Z",
+      "object_id": "2",
+      "object_repr": "Mana concert",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 18,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 8,
+    "fields": {
+      "action_time": "2016-04-27T12:24:04.471Z",
+      "object_id": "3",
+      "object_repr": "Mana concert - 2016-04-28 00:00:00+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 21,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 9,
+    "fields": {
+      "action_time": "2016-04-27T12:24:40.162Z",
+      "object_id": "3",
+      "object_repr": "Partido por la Paz",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 18,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 10,
+    "fields": {
+      "action_time": "2016-04-27T12:25:23.877Z",
+      "object_id": "4",
+      "object_repr": "Partido por la Paz - 2016-04-30 22:45:00+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 21,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 11,
+    "fields": {
+      "action_time": "2016-04-27T13:36:18.474Z",
+      "object_id": "1",
+      "object_repr": "GestionPago object",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 20,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 12,
+    "fields": {
+      "action_time": "2016-04-27T13:37:04.939Z",
+      "object_id": "4",
+      "object_repr": "Chayanne",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 18,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 13,
+    "fields": {
+      "action_time": "2016-04-27T13:37:30.293Z",
+      "object_id": "5",
+      "object_repr": "Chayanne - 2016-04-27 15:37:20+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido.",
+      "content_type": 21,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 14,
+    "fields": {
+      "action_time": "2016-05-09T15:59:23.319Z",
+      "object_id": "2",
+      "object_repr": "Entradas object",
+      "action_flag": 2,
+      "change_message": "Modificado/a edad.",
+      "content_type": 17,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangoadminlog",
+    "pk": 15,
+    "fields": {
+      "action_time": "2016-05-09T15:59:49.374Z",
+      "object_id": "2",
+      "object_repr": "Entradas object",
+      "action_flag": 2,
+      "change_message": "Modificado/a edad.",
+      "content_type": 17,
+      "user": 1
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authgroup"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authgrouppermissions"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authpermission"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authuser"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authusergroups"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "eventos",
+      "model": "authuseruserpermissions"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "eventos",
+      "model": "djangoadminlog"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "eventos",
+      "model": "djangocontenttype"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "eventos",
+      "model": "djangomigrations"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "eventos",
+      "model": "djangosession"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "eventos",
+      "model": "entradas"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "eventos",
+      "model": "eventos"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 19,
+    "fields": {
+      "app_label": "eventos",
+      "model": "tipoeventos"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 20,
+    "fields": {
+      "app_label": "eventos",
+      "model": "gestionpago"
+    }
+  },
+  {
+    "model": "eventos.djangocontenttype",
+    "pk": 21,
+    "fields": {
+      "app_label": "eventos",
+      "model": "sesiones"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 1,
+    "fields": {
+      "app": "contenttypes",
+      "name": "0001_initial",
+      "applied": "2016-04-27T12:19:24.724Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 2,
+    "fields": {
+      "app": "auth",
+      "name": "0001_initial",
+      "applied": "2016-04-27T12:19:24.909Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 3,
+    "fields": {
+      "app": "admin",
+      "name": "0001_initial",
+      "applied": "2016-04-27T12:19:24.986Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 4,
+    "fields": {
+      "app": "admin",
+      "name": "0002_logentry_remove_auto_add",
+      "applied": "2016-04-27T12:19:25.012Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 5,
+    "fields": {
+      "app": "contenttypes",
+      "name": "0002_remove_content_type_name",
+      "applied": "2016-04-27T12:19:25.088Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 6,
+    "fields": {
+      "app": "auth",
+      "name": "0002_alter_permission_name_max_length",
+      "applied": "2016-04-27T12:19:25.109Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 7,
+    "fields": {
+      "app": "auth",
+      "name": "0003_alter_user_email_max_length",
+      "applied": "2016-04-27T12:19:25.131Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 8,
+    "fields": {
+      "app": "auth",
+      "name": "0004_alter_user_username_opts",
+      "applied": "2016-04-27T12:19:25.153Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 9,
+    "fields": {
+      "app": "auth",
+      "name": "0005_alter_user_last_login_null",
+      "applied": "2016-04-27T12:19:25.173Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 10,
+    "fields": {
+      "app": "auth",
+      "name": "0006_require_contenttypes_0002",
+      "applied": "2016-04-27T12:19:25.176Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 11,
+    "fields": {
+      "app": "auth",
+      "name": "0007_alter_validators_add_error_messages",
+      "applied": "2016-04-27T12:19:25.197Z"
+    }
+  },
+  {
+    "model": "eventos.djangomigrations",
+    "pk": 12,
+    "fields": {
+      "app": "sessions",
+      "name": "0001_initial",
+      "applied": "2016-04-27T12:19:25.220Z"
+    }
+  },
+  {
+    "model": "eventos.djangosession",
+    "pk": "1p0ba39cy4m0uz8feo9k6djeycbk93hy",
+    "fields": {
+      "session_data": "YTU5MmJlNzI2NTc5ZmY0NWQ4ZjM5YjFlMjRmMmNhZjAzNjNiNTQ2ZDp7ImlkX3Nlc2lvbiI6IjIiLCJfYXV0aF91c2VyX2hhc2giOiI2YWU2YjhhNTNiYTQwYWM1OGQ3ZmQxZjc4MGY5MmJlMjdkNDdlYzZjIiwiaWRfZXZlbnRvIjoxLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+      "expire_date": "2016-05-23T16:26:45.407Z"
+    }
+  },
+  {
+    "model": "eventos.tipoeventos",
+    "pk": 1,
+    "fields": {
+      "nombre_tipoevento": "Deportivos"
+    }
+  },
+  {
+    "model": "eventos.tipoeventos",
+    "pk": 2,
+    "fields": {
+      "nombre_tipoevento": "Culturales"
+    }
+  },
+  {
+    "model": "eventos.tipoeventos",
+    "pk": 3,
+    "fields": {
+      "nombre_tipoevento": "Otros"
+    }
+  },
+  {
+    "model": "eventos.eventos",
+    "pk": 1,
+    "fields": {
+      "nombre": "Adele",
+      "imagen": "./adele_concierto.jpg",
+      "descripcion": "El esperadísimo regreso de Adele no podía venir sin el anuncio de su vuelta también a los escenarios. Adele confirma hoy su gira para 2016, tras el lanzamiento de su nuevo álbum, 25, el pasado 20 de noviembre.",
+      "precio": "50.0",
+      "consultas": 3,
+      "estado": "Activo",
+      "tipo_evento": 2
+    }
+  },
+  {
+    "model": "eventos.eventos",
+    "pk": 2,
+    "fields": {
+      "nombre": "Mana concert",
+      "imagen": "./mana.jpg",
+      "descripcion": "Maná llega a España para ofrecer conciertos entre finales de abril y primeros de mayo en varias ciudades de nuestro país.   La formación mexicana dará a conocer los temas que componen su noveno álbum de estudio.",
+      "precio": "60.0",
+      "consultas": 1,
+      "estado": "Activo",
+      "tipo_evento": 2
+    }
+  },
+  {
+    "model": "eventos.eventos",
+    "pk": 3,
+    "fields": {
+      "nombre": "Partido por la Paz",
+      "imagen": "./partido.jpeg",
+      "descripcion": "Lionel Messi, Marcos Senna, Arturo Vidal, Juan Iturbe, Freddy Guarín, Maxi Rodríguez, Diego Alfredo Lugano o Ricky Álvarez serán algunos de los más de veinte futbolistas latinoamericanos que se darán cita el 1 de septiembre en Roma para disputar el \"",
+      "precio": "40.0",
+      "consultas": 2,
+      "estado": "Activo",
+      "tipo_evento": 1
+    }
+  },
+  {
+    "model": "eventos.eventos",
+    "pk": 4,
+    "fields": {
+      "nombre": "Chayanne",
+      "imagen": "./chayanne-cantante.jpg",
+      "descripcion": "World Tour",
+      "precio": "40.0",
+      "consultas": 1,
+      "estado": "Activo",
+      "tipo_evento": 2
+    }
+  },
+  {
+    "model": "eventos.gestionpago",
+    "pk": 1,
+    "fields": {
+      "numero_tarjeta": 1234567891,
+      "fecha_caducidad": "12/17",
+      "cvc": 123,
+      "saldo": "10.0"
+    }
+  },
+  {
+    "model": "eventos.sesiones",
+    "pk": 1,
+    "fields": {
+      "ciudad": "Barcelona",
+      "lugar": "Palau Sant Jordi",
+      "sesion": "2016-05-24T18:00:00",
+      "capacidad": 50000,
+      "entradas_vendidas": 1,
+      "id_evento": 1
+    }
+  },
+  {
+    "model": "eventos.sesiones",
+    "pk": 2,
+    "fields": {
+      "ciudad": "Madrid",
+      "lugar": "Estadio Santiago Bernabeu",
+      "sesion": "2016-04-29T21:00:00",
+      "capacidad": 80000,
+      "entradas_vendidas": 0,
+      "id_evento": 1
+    }
+  },
+  {
+    "model": "eventos.sesiones",
+    "pk": 3,
+    "fields": {
+      "ciudad": "Madrid",
+      "lugar": "Estadio Santiago Bernabeu",
+      "sesion": "2016-04-27T22:00:00",
+      "capacidad": 50000,
+      "entradas_vendidas": 0,
+      "id_evento": 2
+    }
+  },
+  {
+    "model": "eventos.sesiones",
+    "pk": 4,
+    "fields": {
+      "ciudad": "Barcelona",
+      "lugar": "Camp Nou",
+      "sesion": "2016-04-30T20:45:00",
+      "capacidad": 90000,
+      "entradas_vendidas": 0,
+      "id_evento": 3
+    }
+  },
+  {
+    "model": "eventos.sesiones",
+    "pk": 5,
+    "fields": {
+      "ciudad": "Madrid",
+      "lugar": "Palacio de los Deportes",
+      "sesion": "2016-04-27T11:37:20",
+      "capacidad": 300000,
+      "entradas_vendidas": 1,
+      "id_evento": 4
+    }
+  },
+  {
+    "model": "eventos.entradas",
+    "pk": 1,
+    "fields": {
+      "fecha_compra": "2016-04-27T13:40:15.478",
+      "nombre": "Alex",
+      "apellido": "Sanchez",
+      "dni": "1104876147",
+      "telefono": "6795775",
+      "edad": 20,
+      "email": "alexandersn059@gmail.com",
+      "cantidad_entradas": 1,
+      "id_sesion": 5
+    }
+  },
+  {
+    "model": "eventos.entradas",
+    "pk": 2,
+    "fields": {
+      "fecha_compra": "2016-05-09T11:52:36.893",
+      "nombre": "Alexander",
+      "apellido": "Sanchez Narvaez",
+      "dni": "1104876147",
+      "telefono": "1234123",
+      "edad": 20,
+      "email": "alexandersn059@gmail.com",
+      "cantidad_entradas": 1,
+      "id_sesion": 1
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can add auth group",
+      "content_type": 7,
+      "codename": "add_authgroup"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can change auth group",
+      "content_type": 7,
+      "codename": "change_authgroup"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can delete auth group",
+      "content_type": 7,
+      "codename": "delete_authgroup"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can add auth group permissions",
+      "content_type": 8,
+      "codename": "add_authgrouppermissions"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can change auth group permissions",
+      "content_type": 8,
+      "codename": "change_authgrouppermissions"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can delete auth group permissions",
+      "content_type": 8,
+      "codename": "delete_authgrouppermissions"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add auth permission",
+      "content_type": 9,
+      "codename": "add_authpermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change auth permission",
+      "content_type": 9,
+      "codename": "change_authpermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete auth permission",
+      "content_type": 9,
+      "codename": "delete_authpermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can add auth user",
+      "content_type": 10,
+      "codename": "add_authuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can change auth user",
+      "content_type": 10,
+      "codename": "change_authuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can delete auth user",
+      "content_type": 10,
+      "codename": "delete_authuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can add auth user groups",
+      "content_type": 11,
+      "codename": "add_authusergroups"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can change auth user groups",
+      "content_type": 11,
+      "codename": "change_authusergroups"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can delete auth user groups",
+      "content_type": 11,
+      "codename": "delete_authusergroups"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can add auth user user permissions",
+      "content_type": 12,
+      "codename": "add_authuseruserpermissions"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can change auth user user permissions",
+      "content_type": 12,
+      "codename": "change_authuseruserpermissions"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can delete auth user user permissions",
+      "content_type": 12,
+      "codename": "delete_authuseruserpermissions"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add django admin log",
+      "content_type": 13,
+      "codename": "add_djangoadminlog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change django admin log",
+      "content_type": 13,
+      "codename": "change_djangoadminlog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete django admin log",
+      "content_type": 13,
+      "codename": "delete_djangoadminlog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can add django content type",
+      "content_type": 14,
+      "codename": "add_djangocontenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can change django content type",
+      "content_type": 14,
+      "codename": "change_djangocontenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can delete django content type",
+      "content_type": 14,
+      "codename": "delete_djangocontenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can add django migrations",
+      "content_type": 15,
+      "codename": "add_djangomigrations"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can change django migrations",
+      "content_type": 15,
+      "codename": "change_djangomigrations"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can delete django migrations",
+      "content_type": 15,
+      "codename": "delete_djangomigrations"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can add django session",
+      "content_type": 16,
+      "codename": "add_djangosession"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can change django session",
+      "content_type": 16,
+      "codename": "change_djangosession"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can delete django session",
+      "content_type": 16,
+      "codename": "delete_djangosession"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add Entrada",
+      "content_type": 17,
+      "codename": "add_entradas"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change Entrada",
+      "content_type": 17,
+      "codename": "change_entradas"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete Entrada",
+      "content_type": 17,
+      "codename": "delete_entradas"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can add Evento",
+      "content_type": 18,
+      "codename": "add_eventos"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can change Evento",
+      "content_type": 18,
+      "codename": "change_eventos"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can delete Evento",
+      "content_type": 18,
+      "codename": "delete_eventos"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can add Tipo de Evento",
+      "content_type": 19,
+      "codename": "add_tipoeventos"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can change Tipo de Evento",
+      "content_type": 19,
+      "codename": "change_tipoeventos"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can delete Tipo de Evento",
+      "content_type": 19,
+      "codename": "delete_tipoeventos"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can add Cuenta",
+      "content_type": 20,
+      "codename": "add_gestionpago"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can change Cuenta",
+      "content_type": 20,
+      "codename": "change_gestionpago"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can delete Cuenta",
+      "content_type": 20,
+      "codename": "delete_gestionpago"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add Sesion",
+      "content_type": 21,
+      "codename": "add_sesiones"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change Sesion",
+      "content_type": 21,
+      "codename": "change_sesiones"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete Sesion",
+      "content_type": 21,
+      "codename": "delete_sesiones"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$24000$8KZVplFomFNS$8oFM1E+sMIY9wY7IcPrkHF54ZIGJQ4uwwDKE+Zdd3EM=",
+      "last_login": "2016-05-05T20:48:01.199Z",
+      "is_superuser": true,
+      "username": "user",
+      "first_name": "",
+      "last_name": "",
+      "email": "user@user.es",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2016-04-27T12:19:41.053Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2016-04-27T12:21:04.710Z",
+      "user": 1,
+      "content_type": 19,
+      "object_id": "1",
+      "object_repr": "Deportivos",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2016-04-27T12:21:09.638Z",
+      "user": 1,
+      "content_type": 19,
+      "object_id": "2",
+      "object_repr": "Culturales",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2016-04-27T12:21:13.598Z",
+      "user": 1,
+      "content_type": 19,
+      "object_id": "3",
+      "object_repr": "Otros",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2016-04-27T12:21:17.886Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "1",
+      "object_repr": "Adele",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2016-04-27T12:21:45.526Z",
+      "user": 1,
+      "content_type": 21,
+      "object_id": "1",
+      "object_repr": "Adele - 2016-05-24 22:00:00+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2016-04-27T12:22:58.275Z",
+      "user": 1,
+      "content_type": 21,
+      "object_id": "2",
+      "object_repr": "Adele - 2016-04-29 23:00:00+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2016-04-27T12:23:25.263Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "2",
+      "object_repr": "Mana concert",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2016-04-27T12:24:04.471Z",
+      "user": 1,
+      "content_type": 21,
+      "object_id": "3",
+      "object_repr": "Mana concert - 2016-04-28 00:00:00+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2016-04-27T12:24:40.162Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "3",
+      "object_repr": "Partido por la Paz",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2016-04-27T12:25:23.877Z",
+      "user": 1,
+      "content_type": 21,
+      "object_id": "4",
+      "object_repr": "Partido por la Paz - 2016-04-30 22:45:00+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2016-04-27T13:36:18.474Z",
+      "user": 1,
+      "content_type": 20,
+      "object_id": "1",
+      "object_repr": "GestionPago object",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2016-04-27T13:37:04.939Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "4",
+      "object_repr": "Chayanne",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2016-04-27T13:37:30.293Z",
+      "user": 1,
+      "content_type": 21,
+      "object_id": "5",
+      "object_repr": "Chayanne - 2016-04-27 15:37:20+02:00",
+      "action_flag": 1,
+      "change_message": "Añadido."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2016-05-09T15:59:23.319Z",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "2",
+      "object_repr": "Entradas object",
+      "action_flag": 2,
+      "change_message": "Modificado/a edad."
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2016-05-09T15:59:49.374Z",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "2",
+      "object_repr": "Entradas object",
+      "action_flag": 2,
+      "change_message": "Modificado/a edad."
+    }
+  }
+]

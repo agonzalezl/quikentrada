@@ -129,6 +129,7 @@ class Entradas(models.Model):
     telefono = models.CharField(max_length=25)
     edad = models.IntegerField()
     email = models.CharField(max_length=50)
+    cantidad_entradas = models.IntegerField()
     id_sesion = models.ForeignKey('Sesiones', models.DO_NOTHING, db_column='id_sesion')
 
     class Meta:
@@ -140,7 +141,7 @@ class Eventos(models.Model):
     id_evento = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     imagen = models.CharField(max_length=75, blank=True, null=True)
-    descripcion = models.CharField(max_length=250)
+    descripcion = models.CharField(max_length=500)
     precio = models.DecimalField(max_digits=65535, decimal_places=65535)
     consultas = models.IntegerField()
     estado = models.CharField(max_length=25)
