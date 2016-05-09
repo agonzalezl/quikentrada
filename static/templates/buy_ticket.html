@@ -51,26 +51,26 @@
 																	<label for="first_name">Nombre</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="surname" type="text" name="surname" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input id="surname" type="text" name="surname" class="validate" value="" style="color:#000000" required>
 																	<label for="surname">Apellidos</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="age" type="number" name="age" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input id="age" type="number" name="age" class="validate" value="" style="color:#000000" required>
 																	<label for="age">Edad</label>
 																</div>
 															</div>
 
 															<div class="row">
 																<div class="input-field col s3 offset-s1">
-																	<input id="dni" type="number" name="dni" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input id="dni" type="number" name="dni" class="validate" value="" style="color:#000000" required>
 																	<label for="dni">DNI</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="telephone" type="number" name="telephone" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input id="telephone" type="number" name="telephone" class="validate" value="" style="color:#000000" required>
 																	<label for="telephone">Telefono</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="email" type="text" name="email" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input id="email" type="text" name="email" class="validate" value="" style="color:#000000" required>
 																	<label for="email">Email</label>
 																</div>
 															</div>
@@ -92,22 +92,22 @@
 																	<label for="type">Tipo de Tarjeta</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="holder" type="text" name="holder" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input id="holder" type="text" name="holder" class="validate" value="" style="color:#000000" required>
 																	<label for="holder">Titular</label>
 																</div>
 																<div class="input-field col s3">
-																	<input type="number" id="number" name="number" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input type="number" id="number" name="number" class="validate" value="" style="color:#000000" required>
 																	<label for="number">Numero</label>
 																</div>
 															</div>
 
 															<div class="row">
 																<div class="input-field col s3 offset-s1">
-																	<input maxlength="5" placeholder="mm/yy" id="expire_date" type="text" name="expire_date" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input maxlength="5" placeholder="mm/yy" id="expire_date" type="text" name="expire_date" class="validate" value="" style="color:#000000" required>
 																	<label for="expire_date">Fecha de Caducidad</label>
 																</div>
 																<div class="input-field col s3">
-																	<input id="cvc" type="number" name="cvc" class="validate" value="{{ search.name }}" style="color:#000000" required>
+																	<input id="cvc" type="number" name="cvc" class="validate" value="" style="color:#000000" required>
 																	<label for="cvc">CVC</label>
 																</div>
 															</div>
@@ -123,6 +123,10 @@
 																	¿Estas seguro de que quieres realizar esta compra?
 																</div>
 																<div class="input-field col s3 offset-s1">
+																	<input id="amount" type="number" name="amount" class="validate" value="1" style="color:#000000" required>
+																	<label for="amount">Amount</label>
+																</div>
+																<div class="input-field col s3">
 																	<a class="waves-effect waves-light btn right amber darken-3" onclick="processBuy()">BUY</a>
 																</div>
 															</div>
@@ -154,6 +158,19 @@
 			$('#type').val()=="" || $('#holder').val()=="" || $('#number').val()=="" || $('#expire_date').val()=="" || $('#cvc').val()=="" ){
 			Materialize.toast('Error: All fields required', 4000);
 			return;
+		}
+
+		if($('#dni').val().length>8){
+			Materialize.toast('Error: in the format of DNI number', 4000);
+			return;			
+		}
+		if($('#telephone').val().length>9){
+			Materialize.toast('Error: in the format of Telephone number', 4000);
+			return;			
+		}
+		if($('#number').val().length>16){
+			Materialize.toast('Error: in the format of Credit Card number', 4000);
+			return;			
 		}
 
 			$('#purchaseForm').submit();
