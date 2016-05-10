@@ -165,7 +165,7 @@ class TipoEventos(models.Model):
 
 class GestionPago(models.Model):
     id_gestionpago = models.AutoField(primary_key=True)
-    numero_tarjeta = models.IntegerField()
+    numero_tarjeta = models.BigIntegerField()
     fecha_caducidad = models.CharField(max_length=5)
     cvc = models.IntegerField()
     saldo = models.DecimalField(max_digits=10, decimal_places=1)

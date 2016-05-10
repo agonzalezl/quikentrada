@@ -101,9 +101,12 @@ def purchase(request):
         cuenta = GestionPago.objects.get(numero_tarjeta=number, fecha_caducidad=expire_date, cvc=cvc)
     except GestionPago.DoesNotExist:
         cuenta = None
+
+    cantidad_entradas = int(request.GET.get('amount'))
+    importe = float(evento.precio) * float(cantidad_entradas)
     
     if cuenta is not None:
-        if cuenta.saldo >= evento.precio:
+        if cuenta.saldo >= importe:
             
             id_sesion = request.session.get("id_sesion")
             sesion = Sesiones.objects.get(pk=id_sesion)
@@ -114,21 +117,22 @@ def purchase(request):
                 dni=request.GET.get('dni'), 
                 telefono=request.GET.get('telephone'), 
                 edad=request.GET.get('age'), 
-                email=request.GET.get('email'), 
+                email=request.GET.get('email'),
+                cantidad_entradas=request.GET.get('amount'),
                 id_sesion=sesion
                 )
             
             entrada.save()
 
             # Balance substraction
-            cuenta.saldo = cuenta.saldo - evento.precio 
+            cuenta.saldo = float(cuenta.saldo) - importe 
             cuenta.save()
 
             # Event capacity substraction
-            sesion.entradas_vendidas += 1
+            sesion.entradas_vendidas = sesion.entradas_vendidas + cantidad_entradas
             sesion.save()
             time.sleep(4)
-            return render(request, 'purchase.html', {'entrada':entrada})
+            return render(request, 'purchase.html', {'entrada':entrada, 'importe':importe})
         else:
             mensaje = "No autorizacion de pago!"
             return render(request, 'purchase.html', {'mensaje':mensaje})

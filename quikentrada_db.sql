@@ -3,7 +3,7 @@ CREATE SEQUENCE public.gestion_pago_id_gestionpago_seq;
 
 CREATE TABLE public.gestion_pago (
                 id_gestionpago INTEGER NOT NULL DEFAULT nextval('public.gestion_pago_id_gestionpago_seq'),
-                numero_tarjeta INTEGER NOT NULL,
+                numero_tarjeta BIGINT NOT NULL,
                 fecha_caducidad VARCHAR(5) NOT NULL,
                 cvc INTEGER NOT NULL,
                 saldo NUMERIC NOT NULL,
