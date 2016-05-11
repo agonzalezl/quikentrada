@@ -20,3 +20,32 @@ def top_ventas(request):
 	print entradas
 
 	return render(request, 'top_sells.html', {'sells':entradas})
+
+@admin.site.register_view('event_customers')
+def event_customers(request):
+	eventos = Eventos.objects.all().order_by('id_evento')
+
+	if request.GET.get('id_evento') is not None:
+		id_evento = request.GET.get('id_evento')
+		entradas =  Entradas.objects.filter(id_sesion__id_evento=id_evento).distinct('dni')
+	else:
+		entradas = Entradas.objects.filter(id_sesion__id_evento = 1).distinct('dni')
+
+	return render(request, 'event_customers.html', {
+		'eventos': eventos,
+		'clientes':entradas
+		})
+
+
+cantidad = ventas_hora(13)
+print cantidad
+
+def ventas_hora(hour):
+	cont = 0 #count amount of hours
+	ventas = Entradas.objects.all()
+	for venta in ventas:
+		if venta.fecha_compra.hour == hour:
+			cont += 1
+	return cont
+
+
