@@ -53,7 +53,9 @@ urlpatterns = [
     url(r'^purchase', views.purchase, name="purchase"),
 
 
-    url(r'^admin/age_stats/', views.age_stats, name='age_stats')
+    url(r'^admin/age_stats/', views.age_stats, name='age_stats'),
+
+    url(r'^admin/time_stats/', views.time_stats, name='time_stats')
 ]
 
 if settings.DEBUG:

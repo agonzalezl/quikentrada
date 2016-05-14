@@ -3,10 +3,10 @@ from django.shortcuts import render
 from eventos.models import *
 from django.db.models import Count
 
+
 @admin.site.register_view('edades')
 def edades(request):
-    return render(request, 'age_stats.html')
-
+	return render(request, 'age_stats.html')
 
 @admin.site.register_view('consultas')
 def consultas(request):
@@ -17,8 +17,6 @@ def consultas(request):
 @admin.site.register_view('top_ventas')
 def top_ventas(request):
 	entradas =  Entradas.objects.all().values('id_sesion__id_evento__nombre').annotate(total=Count('id_sesion__id_evento')).order_by('-total')[:20]
-	print entradas
-
 	return render(request, 'top_sells.html', {'sells':entradas})
 
 @admin.site.register_view('event_customers')
@@ -36,16 +34,6 @@ def event_customers(request):
 		'clientes':entradas
 		})
 
-
-cantidad = ventas_hora(13)
-print cantidad
-
-def ventas_hora(hour):
-	cont = 0 #count amount of hours
-	ventas = Entradas.objects.all()
-	for venta in ventas:
-		if venta.fecha_compra.hour == hour:
-			cont += 1
-	return cont
-
-
+@admin.site.register_view('horas')
+def horas(request):
+	return render(request, 'time_stats.html')

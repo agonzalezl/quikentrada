@@ -143,11 +143,15 @@ def purchase(request):
 
 @csrf_exempt
 def age_stats(request):
+
+    ventas = Entradas.objects.all()
+    for venta in ventas:
+        print venta.fecha_compra.hour
+
     if request.method == 'POST':
         post_text = request.POST.get('the_post')
 
         data = []
-
 
         for i in range(5):
             gt = i*20
@@ -162,3 +166,15 @@ def age_stats(request):
 
         # just return a JsonResponse
         return JsonResponse(data, safe=False)
+
+
+
+@csrf_exempt
+def time_stats(request):
+    ventas = Entradas.objects.all()
+    data = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    for venta in ventas:
+        data[venta.fecha_compra.hour] += 1
+    return JsonResponse(data, safe=False)
+
+

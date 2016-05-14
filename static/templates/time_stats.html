@@ -1,0 +1,131 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="es-es" >
+<head>
+<title>Sitio administrativo | Sitio de administración de Django</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
+<link type="text/css" rel="stylesheet" href="{% static 'css/c3.min.css' %}"  media="screen,projection"/>
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class=" dashboard"
+  data-admin-utc-offset="7200">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">Administración de Django</a></h1>
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Bienvenido/a,
+                <strong>{{ user.get_username }}</strong>.
+            
+            
+                
+                    <a href="/">Ver el sitio</a> /
+                
+                
+                    
+                    
+                
+                
+                <a href="/admin/password_change/">Cambiar contraseña</a> /
+                
+                <a href="/admin/logout/">Terminar sesión</a>
+            
+        </div>
+        
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+    
+        
+    
+
+    <!-- Content -->
+    <div id="content" class="colMS">
+        
+        <h1>Sitio administrativo</h1>
+        
+<div id="content-main">
+
+
+    <div id="graph">    </div>
+    
+
+</div>
+
+        
+ 
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/d3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/c3.min.js' %}"></script>
+<script>
+        $( document ).ready(function() {
+
+
+            $.ajax({
+                url : "time_stats/", // the endpoint
+                type : "POST", // http method
+                success : function(data) {
+                var hours = ['Hours'];
+                hours = hours.concat(data);
+
+
+                var chart = c3.generate({
+                    bindto: "#graph",
+                    data: {
+                        columns: [
+                            hours
+                        ],
+                        type: 'bar'
+                    },
+                    bar: {
+                        width: {
+                            ratio: 0.5
+                        }
+                    },
+                });
+                },
+                error : function(xhr,errmsg,err) {
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+
+
+
+      </script>
+    </body>
+  </html>
